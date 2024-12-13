@@ -30,7 +30,7 @@ const Navbar = () => {
 
     return (
         <motion.nav
-            className={`bg-white backdrop-blur-md pt-8 lg:pt-6 pb-4 pb-5 px-4 items-center sticky top-0 w-full z-50 border-b border-gray-400 shadow-sm`}
+            className={`bg-white backdrop-blur-md pt-8 lg:pt-6 pb-1 md:pb-5 px-4 items-center sticky top-0 w-full z-50 shadow-sm border-gray-400`}
         >
             <div className={`max-w-screen-xl mx-auto justify-around lg:justify-between flex items-center`}>
                 <motion.div>
