@@ -127,16 +127,6 @@ const SignUp = () => {
       toast.dismiss(k);
       return;
     }
-    if (password.trim().length === 0 || confpass.trim().length === 0) {
-      toast.error("Please enter and confirm your password");
-      toast.dismiss(k);
-      return;
-    }
-    if (password !== confpass) {
-      toast.error("Passwords do not match");
-      toast.dismiss(k);
-      return;
-    }
 
     // Show the loading toast and store the id
     const k = toast.loading("Saving your account");
