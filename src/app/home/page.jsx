@@ -122,7 +122,7 @@ export default function Home() {
                     className="text-3xl heroText md:text-6xl font-light text-gray-800"
                     variants={textVariants}
                   >
-                    CRACK <span className="font-bold text-[#674cee]">GATE 2025</span>{" "}
+                    CRACK <span className="font-bold text-[#674cee] gateTextFont">GATE 2025</span>{" "}
                     WITH CONFIDENCE
                   </motion.p>
                   <motion.h2

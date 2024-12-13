@@ -2,7 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cabin+Sketch:wght@400;700&family=Londrina+Sketch&display=swap");
 
 @font-face {
   font-family: "Averta";
@@ -34,8 +35,14 @@ body {
   background-repeat: no-repeat;
 }
 
-.heroText{
+.heroText {
   font-family: "Montserrat", sans-serif;
   font-optical-sizing: auto;
+  font-style: normal;
+}
+
+.gateTextFont {
+  font-family: cursive;
+  font-weight: 700;
   font-style: normal;
 }
