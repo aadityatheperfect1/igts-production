@@ -2,12 +2,27 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Cabin+Sketch:wght@400;700&family=Londrina+Sketch&display=swap");
-
 @font-face {
   font-family: "Averta";
   src: url("/fonts/AvertaStandard.ttf") format("truetype");
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "cabinSketch";
+  src: url("/fonts/Cabin_Sketch/CabinSketch-Bold.ttf") format("truetype");
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "LondrinaSketch";
+  src: url("/fonts/Londrina_Sketch/LondrinaSketch-Regular.ttf") format("truetype");
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "MontserratBold";
+  src: url("/fonts/Montserrat-Medium.ttf") format("truetype");
   font-style: normal;
 }
 
@@ -36,13 +51,13 @@ body {
 }
 
 .heroText {
-  font-family: "Montserrat", sans-serif;
+  font-family: "MontserratBold", sans-serif;
   font-optical-sizing: auto;
   font-style: normal;
 }
 
 .gateTextFont {
-  font-family: cursive;
-  font-weight: 700;
+  font-family: "LondrinaSketch", sans-serif;
+  font-weight: 1000;
   font-style: normal;
 }

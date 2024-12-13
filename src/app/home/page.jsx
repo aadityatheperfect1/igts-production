@@ -119,10 +119,10 @@ export default function Home() {
               >
                 <div className="text-center max-w-4xl mx-auto flex flex-col items-center gap-10">
                   <motion.p
-                    className="text-3xl heroText md:text-6xl font-light text-gray-800"
+                    className="text-3xl heroText md:text-6xl text-black"
                     variants={textVariants}
                   >
-                    CRACK <span className="font-bold text-[#674cee] gateTextFont">GATE 2025</span>{" "}
+                    CRACK <span className="font-extrabold text-[#674cee] tracking-wider gateTextFont">GATE 2025</span>{" "}
                     WITH CONFIDENCE
                   </motion.p>
                   <motion.h2
