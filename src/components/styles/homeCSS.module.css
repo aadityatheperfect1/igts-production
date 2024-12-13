@@ -1,0 +1,15 @@
+.bgHome {
+  background-image: url("https://ik.imagekit.io/dhanak2k25/BG-Home.png?updatedAt=1732275093808");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: #674cee;
+  width: 100%;
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.9
+  ); /* Adjust transparency with RGBA color */
+  background-blend-mode: lighten; /* Blends image with the color */
+}

@@ -1,0 +1,18 @@
+.topSection {
+    overflow: visible;
+    background: url("/images/sectionMask.png") center center no-repeat #674cee;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+  
+  @font-face {
+    font-family: "Averta";
+    src: url("/fonts/AvertaStandard.ttf") format("truetype");
+    font-style: normal;
+  }
+  
+  .fonttAverta {
+    font-family: "Averta";
+    font-weight: bolder;
+  }
+  
