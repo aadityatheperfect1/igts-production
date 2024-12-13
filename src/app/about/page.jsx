@@ -8,7 +8,7 @@ import { motion } from "framer-motion";
 export default function About() {
   return (
     <div>
-      <div className="min-h-screen flex flex-col items-center w-full mx-auto pb-20">
+      <div className="min-h-screen flex flex-col items-center w-full mx-auto">
         <Navbar />
         <motion.div className={`grid grid-cols-1 items-center w-full`}
           initial={{ opacity: 0 }}
