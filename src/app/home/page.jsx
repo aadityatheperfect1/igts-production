@@ -172,7 +172,7 @@ export default function Home() {
                     viewport={{ once: true, amount: 0.2 }} // Trigger when 20% of the element is in view
                     transition={{
                       duration: 0.3, // Smooth animation time
-                      delay: index * 0.2, // Add delay for staggered animation
+                      delay: index * 0.1, // Add delay for staggered animation
                       ease: [0.42, 0, 0.58, 1], // Smooth easing curve
                     }}
                   >
@@ -208,7 +208,7 @@ export default function Home() {
                     viewport={{ once: true }}
                     transition={{
                       duration: 0.8,
-                      delay: index * 0.2,
+                      delay: index * 0.1,
                       ease: [0.42, 0, 0.58, 1],
                     }}
                   >

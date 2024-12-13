@@ -301,14 +301,14 @@ export default function TestDetails({ params }) {
                                           xmlns="http://www.w3.org/2000/svg"
                                           viewBox="0 -960 960 960"
                                           fill="#343434"
-                                          className="h-[20px] w-[20px] xl:h-[24px] xl:w-[24px]"
+                                          className="h-[24px] w-[24px] md:h-[22px] md:w-[22px] xl:h-[24px] xl:w-[24px]"
                                         >
                                           <path d="M200-80q-33 0-56.5-23.5T120-160v-560q0-33 23.5-56.5T200-800h40v-80h80v80h320v-80h80v80h40q33 0 56.5 23.5T840-720v200h-80v-40H200v400h280v80H200Zm0-560h560v-80H200v80Zm0 0v-80 80ZM560-80v-123l221-220q9-9 20-13t22-4q12 0 23 4.5t20 13.5l37 37q8 9 12.5 20t4.5 22q0 11-4 22.5T903-300L683-80H560Zm300-263-37-37 37 37ZM620-140h38l121-122-18-19-19-18-122 121v38Zm141-141-19-18 37 37-18-19Z" />
                                         </svg>
                                       </span>
                                       <span>
-                                        <span className="font-bold text-sm xl:text-lg">{`Test ${idx + 1}:`}</span>
-                                        <span className="text-neutral-700 ml-1 text-sm xl:text-lg">{value}</span>
+                                        <span className="font-bold text-lg md:text-[16px] xl:text-lg">{`Test ${idx + 1}:`}</span>
+                                        <span className="text-neutral-700 ml-1 text-lg md:text-[16px] xl:text-lg">{value}</span>
                                       </span>
                                     </li>
 
@@ -359,19 +359,19 @@ export default function TestDetails({ params }) {
                               <div className="flex gap-5">
                                 <button
                                   onClick={() => handlePackSelection('Pack 1')}
-                                  className={`lg:px-2 xl:px-3 xl:text-md lg:text-sm font-semibold py-2 rounded-md ${selectedPack === 'Pack 1' ? 'bg-[#1e91d6] border border-neutral-700 text-white' : 'bg-gray-200'}`}
+                                  className={`lg:px-2 xl:px-3 xl:text-md lg:text-sm font-semibold py-2 rounded-md ${selectedPack === 'Pack 1' ? 'bg-[#674cee] border border-neutral-700 text-white' : 'bg-gray-200'}`}
                                 >
                                   Pack 1 <br /> (3 Tests)
                                 </button>
                                 <button
                                   onClick={() => handlePackSelection('Pack 2')}
-                                  className={`lg:px-2 xl:px-3 xl:text-md lg:text-sm font-semibold py-2 rounded-md ${selectedPack === 'Pack 2' ? 'bg-[#1e91d6] border border-neutral-700 text-white' : 'bg-gray-200'}`}
+                                  className={`lg:px-2 xl:px-3 xl:text-md lg:text-sm font-semibold py-2 rounded-md ${selectedPack === 'Pack 2' ? 'bg-[#674cee] border border-neutral-700 text-white' : 'bg-gray-200'}`}
                                 >
                                   Pack 2 <br /> (3 Tests)
                                 </button>
                                 <button
                                   onClick={() => handlePackSelection('Both Packs')}
-                                  className={`lg:px-2 xl:px-3 xl:text-md lg:text-sm font-semibold py-2 rounded-md ${selectedPack === 'Both Packs' ? 'bg-[#1e91d6] border border-neutral-700 text-white' : 'bg-gray-200'}`}
+                                  className={`lg:px-2 xl:px-3 xl:text-md lg:text-sm font-semibold py-2 rounded-md ${selectedPack === 'Both Packs' ? 'bg-[#674cee] border border-neutral-700 text-white' : 'bg-gray-200'}`}
                                 >
                                   Both Packs <br /> (6 Tests)
                                 </button>
@@ -379,7 +379,7 @@ export default function TestDetails({ params }) {
                             </div>
                             <div className="flex items-center justify-center">
                               <button
-                                className="px-8 w-full py-3 text-lg flex justify-center items-center font-extrabold rounded-xl text-center text-white bg-gradient-to-b from-[#1e91d6] to-[#0072bb] hover:bg-[#0072bb]"
+                                className="px-8 w-full py-3 text-lg flex justify-center items-center font-extrabold rounded-xl text-center text-white bg-gradient-to-b from-[#7c65f1] to-[#674cee] hover:from-[#674cee] hover:to-[#674cee]"
                                 onClick={
                                   () => {
                                     if (userDetails) {

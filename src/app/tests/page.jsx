@@ -96,7 +96,7 @@ export default function Tests() {
                         </div>
                       </div>
                       <div className="pb-4 md:pb-0 flex flex-col gap-4 md:gap-4 justify-between pt-2 w-full h-full">
-                        <div className={`text-md xl:text-xl text-[#0072bb] font-extrabold`}>
+                        <div className={`text-md xl:text-xl text-[#2c14a8] font-extrabold`}>
                           GATE Mock for {test.title}
                         </div>
                         <div className="w-full flex flex-col gap-3 items-center">
@@ -120,7 +120,7 @@ export default function Tests() {
                         </div>
                         <div className="flex items-center justify-center">
                           <motion.div
-                            className="px-8 w-full transition ease-in-out duration-200 py-3 text-lg text-center font-extrabold rounded-b-full rounded-tl-full text-white bg-gradient-to-b from-[#1e91d6] to-[#0072bb] hover:from-[#0072bb] hover:to-[#0072bb]"
+                            className="px-8 w-full transition ease-in-out duration-200 py-3 text-lg text-center font-extrabold rounded-b-full rounded-tl-full text-white bg-gradient-to-b from-[#7c65f1] to-[#674cee] hover:from-[#674cee] hover:to-[#674cee]"
                           >
                             Explore
                           </motion.div>
