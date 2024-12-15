@@ -118,13 +118,25 @@ export default function Home() {
                 variants={textVariants}
               >
                 <div className="text-center max-w-4xl mx-auto flex flex-col items-center gap-10">
+                  {/* for pc screens */}
                   <motion.p
-                    className="text-3xl heroText md:text-6xl text-black"
+                    className="text-3xl hidden md:inline-block heroText md:text-6xl text-black"
                     variants={textVariants}
                   >
                     CRACK <span className="font-extrabold text-[#674cee] tracking-wider gateTextFont">GATE 2025</span>{" "}
-                    WITH CONFIDENCE
+                    <br /> WITH CONFIDENCE
                   </motion.p>
+
+                  {/* for mobile screens */}
+                  <motion.p
+                    className="text-2xl font-bold inline-block md:hidden heroText md:text-6xl text-black"
+                    variants={textVariants}
+                  >
+                    CRACK <br /> <span className="font-extrabold text-[#674cee] text-6xl tracking-wider gateTextFont">GATE 2025</span>{" "}
+                    <br /> WITH CONFIDENCE
+                  </motion.p>
+
+
                   <motion.h2
                     className="text-2xl mt-10 font-bold md:text-3xl font-extrabold text-[#674cee] mt-4"
                     variants={textVariants}
