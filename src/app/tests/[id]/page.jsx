@@ -220,7 +220,8 @@ export default function TestDetails({ params }) {
                                     () => {
                                       if (userDetails) {
                                         const encodedPack = encodeURIComponent(selectedPack); // Properly encode the query parameter
-                                        router.push(`/tests/${testDetails.id}/enroll?${encodedPack}`);
+                                        const url = `https://igts.dhanakiist.co.in/tests/${testDetails.id}/enroll?pack=${encodedPack}`;
+                                        window.location.href = url; // Redirect to the correct URL
                                       }
                                       else {
                                         toast.error('Please register/login first!');
@@ -385,7 +386,8 @@ export default function TestDetails({ params }) {
                                   () => {
                                     if (userDetails) {
                                       const encodedPack = encodeURIComponent(selectedPack); // Properly encode the query parameter
-                                      router.push(`/tests/${testDetails.id}/enroll?pack=${encodedPack}`);
+                                      const url = `https://igts.dhanakiist.co.in/tests/${testDetails.id}/enroll?pack=${encodedPack}`;
+                                      window.location.href = url; // Redirect to the correct URL
                                     }
                                     else {
                                       toast.error('Please register/login first!');
