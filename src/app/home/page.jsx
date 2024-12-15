@@ -124,7 +124,7 @@ export default function Home() {
                     variants={textVariants}
                   >
                     CRACK <span className="font-extrabold text-[#674cee] tracking-wider gateTextFont">GATE 2025</span>{" "}
-                    <br /> WITH CONFIDENCE
+                    WITH CONFIDENCE
                   </motion.p>
 
                   {/* for mobile screens */}

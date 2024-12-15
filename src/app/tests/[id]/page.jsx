@@ -219,7 +219,8 @@ export default function TestDetails({ params }) {
                                   onClick={
                                     () => {
                                       if (userDetails) {
-                                        router.push(`/tests/${testDetails.id}/enroll?${selectedPack}`);
+                                        const encodedPack = encodeURIComponent(selectedPack); // Properly encode the query parameter
+                                        router.push(`/tests/${testDetails.id}/enroll?${encodedPack}`);
                                       }
                                       else {
                                         toast.error('Please register/login first!');
@@ -383,7 +384,8 @@ export default function TestDetails({ params }) {
                                 onClick={
                                   () => {
                                     if (userDetails) {
-                                      router.push(`/tests/${testDetails.id}/enroll?pack=${selectedPack}`);
+                                      const encodedPack = encodeURIComponent(selectedPack); // Properly encode the query parameter
+                                      router.push(`/tests/${testDetails.id}/enroll?pack=${encodedPack}`);
                                     }
                                     else {
                                       toast.error('Please register/login first!');
