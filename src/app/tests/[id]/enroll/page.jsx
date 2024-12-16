@@ -367,9 +367,9 @@ export default function Enroll({ params }) {
                       <p className={`flex flex-row gap-1 text-[#0072bb] text-sm font-semibold`}>
                         <span>Discount: </span><span> ₹ {discountedAmount()}.00</span>
                         <span>(
-                          {selectedPack === 'Pack 1' && `₹ ${testDetails.discountRate * 100}% OFF`}
-                          {selectedPack === 'Pack 2' && `₹ ${testDetails.discountRate * 100}% OFF`}
-                          {selectedPack === 'Both Packs' && `₹ ${Math.round(testDetails.comboDiscountRate * 100)}% OFF`})
+                          {testPack === 'Pack 1' && `₹ ${testDetails.discountRate * 100}% OFF`}
+                          {testPack === 'Pack 2' && `₹ ${testDetails.discountRate * 100}% OFF`}
+                          {testPack === 'Both Packs' && `₹ ${Math.round(testDetails.comboDiscountRate * 100)}% OFF`})
                         </span>
                       </p>
                     </div>
@@ -444,9 +444,9 @@ export default function Enroll({ params }) {
                     <p className={`flex flex-row gap-1 text-[#0072bb] text-sm font-semibold`}>
                       <span>Discount: </span><span> ₹ {discountedAmount()}.00</span>
                       <span>(
-                        {selectedPack === 'Pack 1' && `₹ ${testDetails.discountRate * 100}% OFF`}
-                        {selectedPack === 'Pack 2' && `₹ ${testDetails.discountRate * 100}% OFF`}
-                        {selectedPack === 'Both Packs' && `₹ ${Math.round(testDetails.comboDiscountRate * 100)}% OFF`})
+                        {testPack === 'Pack 1' && `₹ ${testDetails.discountRate * 100}% OFF`}
+                        {testPack === 'Pack 2' && `₹ ${testDetails.discountRate * 100}% OFF`}
+                        {testPack === 'Both Packs' && `₹ ${Math.round(testDetails.comboDiscountRate * 100)}% OFF`})
                       </span>
                     </p>
                   </div>
