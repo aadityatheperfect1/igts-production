@@ -6,20 +6,31 @@ export async function sendMail({
     subject,
     body
 }) {
-    const { SMTP_PASSWORD, SMTP_EMAIL } = process.env;
+    // For Gmail SMTP
+    // const { SMTP_PASSWORD, SMTP_EMAIL } = process.env;
 
-    // Check if SMTP credentials are available
-    if (!SMTP_EMAIL || !SMTP_PASSWORD) {
-        console.error("SMTP credentials are missing.");
-        return;
-    }
+    // // Check if SMTP credentials are available
+    // if (!SMTP_EMAIL || !SMTP_PASSWORD) {
+    //     console.error("SMTP credentials are missing.");
+    //     return;
+    // }
 
-    const transport = nodemailer.createTransport({
-        service: "gmail",
+    // const transport = nodemailer.createTransport({
+    //     service: "gmail",
+    //     auth: {
+    //         user: SMTP_EMAIL,
+    //         pass: SMTP_PASSWORD,
+    //     }
+    // });
+
+    // For GoDaddy Professional Email SMTP
+    let transport = nodemailer.createTransport({
+        host: process.env.MAIL_HOST,
+        port: process.env.MAIL_PORT,
         auth: {
-            user: SMTP_EMAIL,
-            pass: SMTP_PASSWORD,
-        }
+            user: process.env.MAIL_USER,
+            pass: process.env.MAIL_PASS,
+        },
     });
 
     // Verify the transport connection
@@ -34,7 +45,7 @@ export async function sendMail({
     // Send the email
     try {
         const sendResult = await transport.sendMail({
-            from: SMTP_EMAIL,
+            from: process.env.MAIL_USER,
             to,
             subject,
             html: `<p>${body}</p>`

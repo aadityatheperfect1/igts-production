@@ -77,7 +77,7 @@ export default function Enroll({ params }) {
       }
       if (!user) {
         toast.error('Please sign up / sign in first');
-        router.push('/sign-up');
+        `router.push`('/sign-up');
       }
     });
     return () => unsubscribe();
