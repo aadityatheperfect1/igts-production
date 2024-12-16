@@ -124,14 +124,14 @@ export default function Enroll({ params }) {
   const totalAmountAfterDiscount = () => {
     if (testPack === 'Pack 1') return calculateDiscountedPrice(testDetails.pricePerPack, testDetails.discountRate);
     if (testPack === 'Pack 2') return calculateDiscountedPrice(testDetails.pricePerPack, testDetails.discountRate);
-    if (testPack === 'Both Packs') return calculateDiscountedPrice(testDetails.pricePerPack * 2, testDetails.discountRate);
+    if (testPack === 'Both Packs') return calculateDiscountedPrice(testDetails.pricePerPack * 2, testDetails.comboDiscountRate);
     return 'Invalid package selected'; // Default case
   }
 
   const discountedAmount = () => {
     if (testPack === 'Pack 1') return testDetails.pricePerPack - calculateDiscountedPrice(testDetails.pricePerPack, testDetails.discountRate);
     if (testPack === 'Pack 2') return testDetails.pricePerPack - calculateDiscountedPrice(testDetails.pricePerPack, testDetails.discountRate);
-    if (testPack === 'Both Packs') return testDetails.pricePerPack * 2 - calculateDiscountedPrice(testDetails.pricePerPack * 2, testDetails.discountRate);
+    if (testPack === 'Both Packs') return testDetails.pricePerPack * 2 - calculateDiscountedPrice(testDetails.pricePerPack * 2, testDetails.comboDiscountRate);
     return 'Invalid package selected'; // Default case
   }
 
@@ -159,7 +159,7 @@ export default function Enroll({ params }) {
 
     setPaymentRunning("running");
     const paymentPostData = {
-      amount: amount*100,
+      amount: amount * 100,
       receipt: receipt,
       user: userDetails, //whole user object,
       test: test, //array of items

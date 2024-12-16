@@ -182,11 +182,13 @@ export default function TestDetails({ params }) {
                                     </p>
                                     <p className={`text-neutral-800 text-strike font-extrabold text-4xl md:text-3xl lg::text-5xl`}>
                                       {selectedPack === 'Pack 1' && `₹ ${calculateDiscountedPrice(testDetails.pricePerPack, testDetails.discountRate)}`}{selectedPack === 'Pack 2' && `₹ ${calculateDiscountedPrice(testDetails.pricePerPack, testDetails.discountRate)}`}
-                                      {selectedPack === 'Both Packs' && `₹ ${calculateDiscountedPrice(testDetails.pricePerPack * 2, testDetails.discountRate)}`}
+                                      {selectedPack === 'Both Packs' && `₹ ${calculateDiscountedPrice(testDetails.pricePerPack * 2, testDetails.comboDiscountRate)}`}
                                     </p>
                                   </div>
                                   <div className={`px-3 py-1 bg-green-100 border border-green-900 text-green-900 text-sm font-semibold rounded-full`}>
-                                    {testDetails.discountRate * 100}% OFF
+                                    {selectedPack === 'Pack 1' && `₹ ${testDetails.discountRate * 100}% OFF`}
+                                    {selectedPack === 'Pack 2' && `₹ ${testDetails.discountRate * 100}% OFF`}
+                                    {selectedPack === 'Both Packs' && `₹ ${Math.round(testDetails.comboDiscountRate * 100)}% OFF`}
                                   </div>
                                 </div>
                               </div>
