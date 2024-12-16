@@ -11,6 +11,7 @@ const tests = [
     altText: 'btech ece branch',
     pricePerPack: 240,
     discountRate: 0.50,
+    comboDiscountRate: 0.583333,
     testSchedule: {
       pack1: {
         test1: '29th Dec 2024',
@@ -33,6 +34,7 @@ const tests = [
     altText: 'btech aerospace branch',
     pricePerPack: 240,
     discountRate: 0.50,
+    comboDiscountRate: 0.583333,
     testSchedule: {
       pack1: {
         test1: '29th Dec 2024',
@@ -55,6 +57,7 @@ const tests = [
     altText: 'btech mechanical branch',
     pricePerPack: 240,
     discountRate: 0.50,
+    comboDiscountRate: 0.583333,
     testSchedule: {
       pack1: {
         test1: '29th Dec 2024',
@@ -77,6 +80,7 @@ const tests = [
     altText: 'btech physics branch',
     pricePerPack: 240,
     discountRate: 0.50,
+    comboDiscountRate: 0.583333,
     testSchedule: {
       pack1: {
         test1: '29th Dec 2024',
