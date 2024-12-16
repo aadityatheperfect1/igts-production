@@ -221,6 +221,7 @@ export default function TestDetails({ params }) {
                                       if (userDetails) {
                                         const encodedPack = encodeURIComponent(selectedPack); // Properly encode the query parameter
                                         const url = `https://igts.dhanakiist.co.in/tests/${testDetails.id}/enroll?pack=${encodedPack}`;
+                                        // router.push(`/tests/${testDetails.id}/enroll?pack=${encodedPack}`);
                                         window.location.href = url; // Redirect to the correct URL
                                       }
                                       else {
@@ -387,6 +388,7 @@ export default function TestDetails({ params }) {
                                     if (userDetails) {
                                       const encodedPack = encodeURIComponent(selectedPack); // Properly encode the query parameter
                                       const url = `https://igts.dhanakiist.co.in/tests/${testDetails.id}/enroll?pack=${encodedPack}`;
+                                      // router.push(`/tests/${testDetails.id}/enroll?pack=${encodedPack}`);
                                       window.location.href = url; // Redirect to the correct URL
                                     }
                                     else {
@@ -411,9 +413,6 @@ export default function TestDetails({ params }) {
               </section>
             }
             <section className={`sm:max-w-xl md:max-w-4xl lg:max-w-screen-xl xl:max-w-screen-xl space-y-8 md:px-0 px-3 md:px-8 lg:px-5 mx-auto py-10`}>
-
-
-
               <div className="mb-8">
                 <h2 className="text-3xl lg:text-4xl text-[#2c14a8] font-bold mb-6 text-center lg:text-left">
                   Why Choose Our Test Series?
@@ -424,7 +423,6 @@ export default function TestDetails({ params }) {
                       "Thorough preparation with a wide variety of questions.",
                       "Simulated real GATE experience with time constraints.",
                       "Detailed performance analysis for each test.",
-                      "Access to top-notch mentors and doubt clarification sessions.",
                       "Boost your problem-solving skills and time management.",
                       "Updated content aligned with the latest GATE syllabus.",
                       "Opportunity to benchmark against thousands of aspirants.",
@@ -440,7 +438,8 @@ export default function TestDetails({ params }) {
                         >
                           <path d="M85.998,50C68.02,50,50.042,32.042,50,14.063V14c0,0.01-0.001,0.021-0.001,0.031c0-0.011-0.001-0.021-0.001-0.032v0.063  
   C49.956,32.042,31.979,50,14,50c18,0,36,18,36,36l0,0c0-18,18-36,36-36H85.998z" />
-                        </svg>                        <span className="text-lg lg:text-xl text-gray-800 font-medium">{benefit}</span>
+                        </svg>
+                        <span className="text-lg lg:text-xl text-gray-800 font-medium">{benefit}</span>
                       </li>
                     ))}
                   </ul>

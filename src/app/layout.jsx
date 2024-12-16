@@ -14,7 +14,6 @@ import { initializeApp } from "firebase/app";
 import { AppProgressBar as ProgressBar } from 'next-nprogress-bar';
 
 export default function RootLayout({ children }) {
-  console.log("Global Print");
 
   return (
     <Provider store={store}>
@@ -22,7 +21,7 @@ export default function RootLayout({ children }) {
         <body>
           <ProgressBar
             height="3px"
-            color="#1e91d6"
+            color="#674cee"
             options={{ showSpinner: false }}
             shallowRouting
           />

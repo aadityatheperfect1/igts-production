@@ -37,6 +37,7 @@ export default function Enroll({ params }) {
   const pageType = pageParams.id;
 
   const router = useRouter();
+  const [paymentRunning, setPaymentRunning] = useState(null);
 
 
 
@@ -60,10 +61,6 @@ export default function Enroll({ params }) {
     }
   };
 
-  useEffect(() => {
-    console.log(userDetails);
-
-  }, [userDetails]);
 
   useEffect(() => {
     if (user) {
@@ -137,6 +134,128 @@ export default function Enroll({ params }) {
     if (testPack === 'Both Packs') return testDetails.pricePerPack * 2 - calculateDiscountedPrice(testDetails.pricePerPack * 2, testDetails.discountRate);
     return 'Invalid package selected'; // Default case
   }
+
+  function loadScript(src) {
+    return new Promise((resolve) => {
+      const script = document.createElement("script");
+      script.src = src;
+      script.onload = () => {
+        resolve(true);
+      };
+      script.onerror = () => {
+        resolve(false);
+      };
+      document.body.appendChild(script);
+    });
+  }
+
+
+  // payments code
+  const handlePayment = async () => {
+    const amount = totalAmountAfterDiscount(); // Amount in paise (₹500)
+    const receipt = `TEST-${new Date().getTime()}`; // a receipt for payment usually generated with date,
+    const test = `${testDetails.title}, ${formattedPack}`;
+
+
+    setPaymentRunning("running");
+    const paymentPostData = {
+      amount: amount,
+      receipt: receipt,
+      user: userDetails, //whole user object,
+      test: test, //array of items
+    };
+    let t = toast.loading("Processing your registration....");
+    const response = await fetch("/api/payments/init", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: "dhanak", // Add your custom headers
+      },
+      body: JSON.stringify(paymentPostData),
+    });
+
+    if (!response.ok) {
+      throw new Error("Network response was not ok");
+    }
+
+    const initPaymentResponse = await response.json();
+    if (response.status !== 200) {
+      toast.dismiss(t);
+      toast.error(data.message);
+      return;
+    }
+
+    toast.dismiss(t);
+    const res = await loadScript(
+      "https://checkout.razorpay.com/v1/checkout.js"
+    );
+    if (!res) {
+      toast.error("Razropay failed to load!!");
+      toast.dismiss(t);
+      return;
+    }
+
+    let options = {
+      key: process.env.NEXT_PUBLIC_RAZORPAY_KEY, // Enter the Key ID generated from the Dashboard
+      amount: totalAmountAfterDiscount(), // Amount is in currency subunits. Default currency is INR.
+      currency: "INR",
+      name: "IGTS Registration - Dhanak 2k24",
+      description: "Transcation for GATE Mock Test registration",
+      image: "https://igts.dhanakiist.co.in/images/logo.png",
+      order_id: initPaymentResponse.id, //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
+      handler: async function (response) {
+        toast.dismiss(t);
+        let t2 = toast.loading(
+          "Locking in your registration, please hold on..."
+        );
+        let res = await fetch("/api/test/registerTest", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            pid: response.razorpay_payment_id,
+            oid: response.razorpay_order_id,
+            signature: response.razorpay_signature,
+            tname: userDetails.name,
+            test: test,
+          }),
+        });
+        let rdata = await res.json();
+        if (res.status !== 200) {
+          toast.error("Payment failed");
+          return;
+        }
+        toast.success("Payment successful");
+
+        toast.dismiss(t2);
+        setPaymentRunning("successful");
+        toast.success("Test registered successfully");
+
+        router.push("/tests");
+      },
+      prefill: {
+        name: userDetails.name,
+        email: userDetails.email,
+        contact: userDetails.mobile,
+      },
+      notes: {
+        address: "IIST, Valiamala, Thiruvananthapuram, Kerala, India",
+      },
+      theme: {
+        color: "#674cee",
+      },
+    };
+
+    const rzp = new window.Razorpay(options);
+    rzp.on("payment.failed", async function (response) {
+      toast.dismiss(t);
+      toast.error(response.error.description);
+    });
+    rzp.open();
+
+
+  };
 
 
   if (loadingPage && !userDetails) {
@@ -228,9 +347,22 @@ export default function Enroll({ params }) {
                 <div className={`w-full flex flex-col justify-between items-center rounded-md border border-neutral-400 h-full md:h-4/5`}>
                   <div className={`p-6 flex flex-col space-y-2`}>
                     <div className={`flex flex-col gap-3 `}>
-                      <button className="w-full font-bold text-md rounded-full bg-[#1e91d6] hover:bg-[#0072bb] text-white py-2 transition-all">
-                        Continue to pay
-                      </button>
+                      <div
+                        className={`w-full flex gap-0 p-0 rounded-sm overflow-hidden border border-[#072654] cursor-pointer bg-[#eaf2fe]`}
+                        onClick={handlePayment}
+                      >
+                        <div className={`bg-[#1e40a0] p-3.5`}>
+                          <svg width="18" height="20" viewBox="0 0 18 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7.077 6.476l-.988 3.569 5.65-3.589-3.695 13.54 3.752.004 5.457-20L7.077 6.476z" fill="#fff"></path><path d="M1.455 14.308L0 20h7.202L10.149 8.42l-8.694 5.887z" fill="#fff"></path></svg>
+                        </div>
+                        <div className={`flex flex-col justify-center items-center text-center w-full`}>
+                          <p className={`text-[#072654] font-extrabold italic text-neutral-600 text-sm`}>
+                            Continue to pay
+                          </p>
+                          <p className={`text-[#072654] italic text-neutral-600 text-xs`}>
+                            Secured by Razorpay
+                          </p>
+                        </div>
+                      </div>
                       <p className={`text-xs text-neutral-700 text-center px-2`}>By enrolling for this tests series, you agree to our <Link href={`/privacy-policy`} className={`text-[#007185] hover:underline hover:text-[#c7511f]`}>privacy policy</Link></p>
                     </div>
                     <hr className={`h-[1px]`} />
@@ -239,7 +371,7 @@ export default function Enroll({ params }) {
                       <div className={`text-md md:text-sm flex flex-col`}>
                         <div className='flex flex-col w-full gap-1'>
                           <p className={`flex w-full justify-between items-center`}><span>Test Series:</span><span>₹{totalAmount()}.00</span></p>
-                          <p className={`flex w-full justify-between items-center`}><span>Discount:</span><span>₹{discountedAmount()}.00</span></p>
+                          <p className={`flex w-full justify-between items-center`}><span>Discount ({testDetails.discountRate * 100}%) :</span><span>₹{discountedAmount()}.00</span></p>
                         </div>
                       </div>
                     </div>
@@ -282,11 +414,26 @@ export default function Enroll({ params }) {
             {/* Right Column */}
             <div className="md:col-span-1 py-8 px-2 lg:px-6 xl:px-10 hidden md:flex justify-center">
               <div className={`w-full flex flex-col justify-between items-center rounded-md border border-neutral-400 h-full md:h-4/5`}>
-                <div className={`p-6 flex flex-col space-y-2`}>
-                  <div className={`flex flex-col gap-3 `}>
-                    <button className="w-full font-bold text-md rounded-full bg-[#1e91d6] hover:bg-[#0072bb] text-white py-2 transition-all">
-                      Continue to pay
-                    </button>
+                <div className={`p-6 flex flex-col space-y-2 w-full`}>
+                  <div className={`flex flex-col gap-3 w-full justify-center`}>
+
+                    <div
+                      className={`w-full flex gap-0 p-0 rounded-sm overflow-hidden border border-[#072654] cursor-pointer bg-[#eaf2fe]`}
+                      onClick={handlePayment}
+                    >
+                      <div className={`bg-[#1e40a0] p-3.5`}>
+                        <svg width="18" height="20" viewBox="0 0 18 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7.077 6.476l-.988 3.569 5.65-3.589-3.695 13.54 3.752.004 5.457-20L7.077 6.476z" fill="#fff"></path><path d="M1.455 14.308L0 20h7.202L10.149 8.42l-8.694 5.887z" fill="#fff"></path></svg>
+                      </div>
+                      <div className={`flex flex-col justify-center items-center text-center w-full`}>
+                        <p className={`text-[#072654] font-extrabold italic text-neutral-600 text-sm`}>
+                          Continue to pay
+                        </p>
+                        <p className={`text-[#072654] italic text-neutral-600 text-xs`}>
+                          Secured by Razorpay
+                        </p>
+                      </div>
+                    </div>
+
                     <p className={`text-xs text-neutral-700 text-center px-2`}>By enrolling for this tests series, you agree to our <Link href={`/privacy-policy`} className={`text-[#007185] hover:underline hover:text-[#c7511f]`}>privacy policy</Link></p>
                   </div>
                   <hr className={`h-[1px]`} />
@@ -295,7 +442,7 @@ export default function Enroll({ params }) {
                     <div className={`text-md md:text-sm flex flex-col`}>
                       <div className='flex flex-col w-full gap-1'>
                         <p className={`flex w-full justify-between items-center`}><span>Test Series:</span><span>₹{totalAmount()}.00</span></p>
-                        <p className={`flex w-full justify-between items-center`}><span>Discount:</span><span>₹{discountedAmount()}.00</span></p>
+                        <p className={`flex w-full justify-between items-center`}><span>Discount ({testDetails.discountRate * 100}%):</span><span>₹{discountedAmount()}.00</span></p>
                       </div>
                     </div>
                   </div>
