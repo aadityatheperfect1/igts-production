@@ -159,7 +159,7 @@ export default function Enroll({ params }) {
 
     setPaymentRunning("running");
     const paymentPostData = {
-      amount: amount,
+      amount: amount*100,
       receipt: receipt,
       user: userDetails, //whole user object,
       test: test, //array of items
