@@ -17,6 +17,9 @@ import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { firebaseConfig } from "@/app/firebase/config";
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { motion } from "framer-motion";
+import confetti from 'canvas-confetti';
+import Navbar from "@/components/Navbar";
+
 
 
 export default function Enroll({ params }) {
@@ -38,6 +41,7 @@ export default function Enroll({ params }) {
 
   const router = useRouter();
   const [paymentRunning, setPaymentRunning] = useState(null);
+  const [isRegistrationSuccess, setIsRegistrationSuccess] = useState(false);
 
 
 
@@ -231,8 +235,13 @@ export default function Enroll({ params }) {
         toast.dismiss(t2);
         setPaymentRunning("successful");
         toast.success("Test registered successfully");
-
-        router.push("/tests");
+        setIsRegistrationSuccess(true);
+        confetti({
+          particleCount: 100,
+          spread: 70,
+          origin: { x: 0.5, y: 0.5 }, // Center of the screen
+          colors: ['#FFD700', '#1E90FF', '#FF4500'], // Customize colors
+        });
       },
       prefill: {
         name: userDetails.name,
@@ -272,6 +281,53 @@ export default function Enroll({ params }) {
       </div>);
   }
 
+  if (isRegistrationSuccess) {
+    return (
+      <div>
+        <Navbar />
+        <div className="min-h-[calc(100vh-80px)] bg-green-50 flex flex-col items-center w-full mx-auto pb-20">
+          <div className={`grid grid-cols-1 items-center pt-8`}>
+            <div className={`max-w-7xl mx-auto px-4 md:px-10 lg:px-10 `}>
+              <motion.div
+                className="flex flex-col items-center px-12 py-14 rounded-lg shadow-lg bg-white max-w-xl w-full"
+                initial={{ opacity: 0, y: -50 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, ease: "easeInOut" }}
+              >
+                {/* Success Icon */}
+                <motion.div
+                  className="text-white rounded-full mb-4"
+                  initial={{ scale: 0 }}
+                  animate={{ scale: 1 }}
+                  transition={{ duration: 0.6, ease: "easeInOut" }}
+                >
+                  <img className={`h-20 w-20`} src="/images/successTick.svg" alt="successTick" />
+                </motion.div>
+
+                {/* Success Message */}
+                <h1 className="text-2xl font-bold text-green-600 mb-2">
+                  Registration Successful!
+                </h1>
+                <p className="text-gray-600 text-center mb-4">
+                  Your registration has been completed successfully. Thank you for
+                  registering!
+                </p>
+
+                {/* Button to Go Back */}
+                <Link
+                  className="px-6 py-2 bg-green-500 text-white rounded-md shadow-md hover:bg-green-600 transition-all"
+                  href='/dashboard'
+                >
+                  Go to Dashboard
+                </Link>
+              </motion.div>
+            </div>
+          </div>
+        </div>
+        <Footer />
+      </div>
+    );
+  }
 
   return (
     <div>
@@ -367,9 +423,9 @@ export default function Enroll({ params }) {
                       <p className={`flex flex-row gap-1 text-[#0072bb] text-sm font-semibold`}>
                         <span>Discount: </span><span> ₹ {discountedAmount()}.00</span>
                         <span>(
-                          {testPack === 'Pack 1' && `₹ ${testDetails.discountRate * 100}% OFF`}
-                          {testPack === 'Pack 2' && `₹ ${testDetails.discountRate * 100}% OFF`}
-                          {testPack === 'Both Packs' && `₹ ${Math.round(testDetails.comboDiscountRate * 100)}% OFF`})
+                          {testPack === 'Pack 1' && `${testDetails.discountRate * 100}% OFF`}
+                          {testPack === 'Pack 2' && `${testDetails.discountRate * 100}% OFF`}
+                          {testPack === 'Both Packs' && `${Math.round(testDetails.comboDiscountRate * 100)}% OFF`})
                         </span>
                       </p>
                     </div>
@@ -444,9 +500,9 @@ export default function Enroll({ params }) {
                     <p className={`flex flex-row gap-1 text-[#0072bb] text-sm font-semibold`}>
                       <span>Discount: </span><span> ₹ {discountedAmount()}.00</span>
                       <span>(
-                        {testPack === 'Pack 1' && `₹ ${testDetails.discountRate * 100}% OFF`}
-                        {testPack === 'Pack 2' && `₹ ${testDetails.discountRate * 100}% OFF`}
-                        {testPack === 'Both Packs' && `₹ ${Math.round(testDetails.comboDiscountRate * 100)}% OFF`})
+                        {testPack === 'Pack 1' && `${testDetails.discountRate * 100}% OFF`}
+                        {testPack === 'Pack 2' && `${testDetails.discountRate * 100}% OFF`}
+                        {testPack === 'Both Packs' && `${Math.round(testDetails.comboDiscountRate * 100)}% OFF`})
                       </span>
                     </p>
                   </div>

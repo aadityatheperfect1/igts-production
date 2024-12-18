@@ -186,9 +186,9 @@ export default function TestDetails({ params }) {
                                     </p>
                                   </div>
                                   <div className={`px-3 py-1 bg-green-100 border border-green-900 text-green-900 text-sm font-semibold rounded-full`}>
-                                    {selectedPack === 'Pack 1' && `₹ ${testDetails.discountRate * 100}% OFF`}
-                                    {selectedPack === 'Pack 2' && `₹ ${testDetails.discountRate * 100}% OFF`}
-                                    {selectedPack === 'Both Packs' && `₹ ${Math.round(testDetails.comboDiscountRate * 100)}% OFF`}
+                                    {selectedPack === 'Pack 1' && `${testDetails.discountRate * 100}% OFF`}
+                                    {selectedPack === 'Pack 2' && `${testDetails.discountRate * 100}% OFF`}
+                                    {selectedPack === 'Both Packs' && `${Math.round(testDetails.comboDiscountRate * 100)}% OFF`}
                                   </div>
                                 </div>
                               </div>
@@ -356,9 +356,9 @@ export default function TestDetails({ params }) {
                                 </div>
                                 <div className={`px-3 py-1 bg-green-100 border border-green-900 text-green-900 text-sm font-semibold rounded-full`}>
 
-                                  {selectedPack === 'Pack 1' && `₹ ${testDetails.discountRate * 100}% OFF`}
-                                  {selectedPack === 'Pack 2' && `₹ ${testDetails.discountRate * 100}% OFF`}
-                                  {selectedPack === 'Both Packs' && `₹ ${Math.round(testDetails.comboDiscountRate * 100)}% OFF`}
+                                  {selectedPack === 'Pack 1' && `${testDetails.discountRate * 100}% OFF`}
+                                  {selectedPack === 'Pack 2' && `${testDetails.discountRate * 100}% OFF`}
+                                  {selectedPack === 'Both Packs' && `${Math.round(testDetails.comboDiscountRate * 100)}% OFF`}
 
                                 </div>
                               </div>
