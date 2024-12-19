@@ -1,7 +1,7 @@
 import "../globals.css";
 
 export const metadata = {
-  title: "GATE Mock",
+  title: "IGTS",
   description:
     "Dhanak 2k25 is a cultural fest organised by the students of Indian Institute of Space Science and Technology, Thiruvananthapuram.",
   icons: {
