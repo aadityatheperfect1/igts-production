@@ -221,8 +221,9 @@ export default function Enroll({ params }) {
             pid: response.razorpay_payment_id,
             oid: response.razorpay_order_id,
             signature: response.razorpay_signature,
-            tname: userDetails.name,
+            name: userDetails.name,
             test: test,
+            userId: user.uid,
           }),
         });
         let rdata = await res.json();

@@ -1,29 +1,85 @@
 import { NextResponse } from "next/server";
+import mongoose from "mongoose";
+import { ObjectId } from "mongodb";
+import dbConnect from "@/libs/mongodb"; // Ensure you have a DB connection utility
+import User from "@/models/user.models";
+import { Payment } from "@/models/payments.models";
+import TestRegistrations from "@/models/testRegistrations.models";
 
-// Handle the POST request for test registration
 export async function POST(req) {
     try {
-        // Parse the incoming request body
-        const { pid, oid, signature, tname, test } = await req.json();
+        // Parse and validate the incoming request body
+        const body = await req.json();
+        const requiredFields = ["pid", "oid", "signature", "name", "test", "userId"];
+        for (const field of requiredFields) {
+            if (!body[field]) {
+                return NextResponse.json({ message: `${field} is required.` }, { status: 400 });
+            }
+        }
 
-        // Log the received data for testing purposes
-        console.log("Received data:");
-        console.log("Payment ID:", pid);
-        console.log("Order ID:", oid);
-        console.log("Signature:", signature);
-        console.log("Name:", tname);
-        console.log("Test:", test);
+        const { pid, oid, signature, name, test, userId } = body;
 
-        // Respond with a success message
+        // Ensure the database is connected
+        await dbConnect();
+
+        // Fetch the user object using the userId
+        const currUser = await User.findOne({ userId });
+        console.log(currUser._id);
+        if (!currUser) {
+            return NextResponse.json({ message: "User not found." }, { status: 404 });
+        }
+
+        // Fetch the payment object using the order ID
+        const payment = await Payment.findOne({ orderId: oid });
+        if (!payment) {
+            return NextResponse.json({ message: "Payment record not found." }, { status: 404 });
+        }
+
+        // Check if a registration for the same test already exists for the user
+        const userObjId = currUser._id;
+        const existingRegistration = await TestRegistrations.findOne({
+            userId: userObjId,
+            test
+        });
+
+        if (existingRegistration) {
+            return NextResponse.json(
+                { message: "User is already registered for this test." },
+                { status: 409 }
+            );
+        }
+
+        // Update the payment object
+        payment.paymentId = pid;
+        payment.signature = signature;
+        payment.status = "paid";
+        payment.updatedTime = Date.now(); // Update the timestamp
+        await payment.save();
+
+        // Create a new test registration object
+        const newRegistration = await TestRegistrations.create({
+            pid,
+            oid,
+            signature,
+            name,
+            test,
+            userId: currUser._id.toString(), // Convert ObjectId to String
+            payment: payment._id.toString(), // Ensure payment._id is also converted to string
+        });
+
+        // Update the currUser's registeredTests array atomically
+        currUser.registeredTests.push(newRegistration._id);
+        await currUser.save();
+
+        // Return a success response
         return NextResponse.json(
             {
-                message: "Test registration data received successfully.",
-                data: { pid, oid, signature, tname, test }, // Echo back the data for verification
+                message: "Test registration successful.",
+                registration: newRegistration,
             },
-            { status: 200 }
+            { status: 201 }
         );
     } catch (error) {
-        // Log any errors and return a failure response
         console.error("Error handling test registration request:", error);
         return NextResponse.json(
             { message: "Failed to process the request.", error: error.message },

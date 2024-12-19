@@ -222,9 +222,9 @@ export default function TestDetails({ params }) {
                                     () => {
                                       if (userDetails) {
                                         const encodedPack = encodeURIComponent(selectedPack); // Properly encode the query parameter
-                                        const url = `https://igts.dhanakiist.co.in/tests/${testDetails.id}/enroll?pack=${encodedPack}`;
-                                        // router.push(`/tests/${testDetails.id}/enroll?pack=${encodedPack}`);
-                                        window.location.href = url; // Redirect to the correct URL
+                                        // const url = `https://igts.dhanakiist.co.in/tests/${testDetails.id}/enroll?pack=${encodedPack}`;
+                                        router.push(`/tests/${testDetails.id}/enroll?pack=${encodedPack}`);
+                                        // window.location.href = url; // Redirect to the correct URL
                                       }
                                       else {
                                         toast.error('Please register/login first!');
@@ -393,9 +393,9 @@ export default function TestDetails({ params }) {
                                   () => {
                                     if (userDetails) {
                                       const encodedPack = encodeURIComponent(selectedPack); // Properly encode the query parameter
-                                      const url = `https://igts.dhanakiist.co.in/tests/${testDetails.id}/enroll?pack=${encodedPack}`;
-                                      // router.push(`/tests/${testDetails.id}/enroll?pack=${encodedPack}`);
-                                      window.location.href = url; // Redirect to the correct URL
+                                      // const url = `https://igts.dhanakiist.co.in/tests/${testDetails.id}/enroll?pack=${encodedPack}`;
+                                      router.push(`/tests/${testDetails.id}/enroll?pack=${encodedPack}`);
+                                      // window.location.href = url; // Redirect to the correct URL
                                     }
                                     else {
                                       toast.error('Please register/login first!');

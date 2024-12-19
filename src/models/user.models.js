@@ -41,7 +41,7 @@ const userSchema = new Schema(
         registeredTests: [
             {
                 type: mongoose.Schema.Types.ObjectId,
-                ref: "TestParticipants",
+                ref: "testRegistrations",
             },
         ],
     },
