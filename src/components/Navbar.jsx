@@ -35,7 +35,9 @@ const Navbar = () => {
             <div className={`max-w-screen-xl mx-auto justify-around lg:justify-between flex items-center`}>
                 <motion.div
                     className={`w-1/5`}
-                >
+                    initial={{ scale: 0.9, opacity: 0 }}
+                    animate={{ scale: 1, opacity: 1 }}
+                    transition={{ duration: 0.4, delay: 0.2 }}>
                     <Link href="/">
                         <Image
                             src="/images/logo.png"
