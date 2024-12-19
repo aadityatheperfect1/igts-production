@@ -37,7 +37,7 @@ const Navbar = () => {
         >
             <div className={`max-w-screen-xl mx-auto justify-around lg:justify-between flex items-center`}>
                 <motion.div
-                    className={``}
+                    className={`w-1/5`}
                     initial={{ scale: 0.9, opacity: 0 }}
                     animate={{ scale: 1, opacity: 1 }}
                     transition={{ duration: 0.4, delay: 0.2 }}>
@@ -45,9 +45,9 @@ const Navbar = () => {
                         <Image
                             src="/images/logo.png"
                             alt="Website Logo"
-                            className="h-8 hidden md:inline-block"
-                            width={180} // Set width to match the display size of the image
-                            height={100} // Adjust height based on the aspect ratio of your image
+                            className="hidden md:inline-block"
+                            width={60} // Set width to match the display size of the image
+                            height={60} // Adjust height based on the aspect ratio of your image
                             priority // Optionally, add this if it’s an important image (e.g., above-the-fold content)
                         />
                     </Link>
@@ -55,9 +55,9 @@ const Navbar = () => {
                         <Image
                             src="/images/logo_half.png"
                             alt="Website Logo"
-                            className="h-10 md:hidden"
-                            width={50} // Set width to match the display size of the image
-                            height={50} // Adjust height based on the aspect ratio of your image
+                            className="md:hidden"
+                            width={60} // Set width to match the display size of the image
+                            height={60} // Adjust height based on the aspect ratio of your image
                             priority // Optionally, add this if it’s an important image (e.g., above-the-fold content)
                         />
                     </Link>

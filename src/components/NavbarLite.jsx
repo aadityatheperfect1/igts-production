@@ -12,9 +12,9 @@ const Navbar = () => {
                         <Image
                             src="/images/logo.png"
                             alt="Website Logo"
-                            className="h-8 hidden md:inline-block"
-                            width={180} // Set width to match the display size of the image
-                            height={100} // Adjust height based on the aspect ratio of your image
+                            className="hidden md:inline-block"
+                            width={60} // Set width to match the display size of the image
+                            height={60} // Adjust height based on the aspect ratio of your image
                             priority // Optionally, add this if it’s an important image (e.g., above-the-fold content)
                         />
 
@@ -23,9 +23,9 @@ const Navbar = () => {
                         <Image
                             src="/images/logo_half.png"
                             alt="Website Logo"
-                            className="h-10 md:hidden"
-                            width={50} // Set width to match the display size of the image
-                            height={50} // Adjust height based on the aspect ratio of your image
+                            className="md:hidden"
+                            width={60} // Set width to match the display size of the image
+                            height={60} // Adjust height based on the aspect ratio of your image
                             priority // Optionally, add this if it’s an important image (e.g., above-the-fold content)
                         />
                     </Link>
