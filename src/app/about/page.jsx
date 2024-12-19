@@ -110,6 +110,81 @@ export default function About() {
               </motion.div>
             </motion.div>
           </section>
+          <section>
+            <motion.div className={`w-full grid space-y-8 md:space-y-10 items-center justify-center pt-10 md:pt-4 pb-10 px-2 md:px-10 md:pb-14 bg-gray-900 text-white`}>
+              <div className={`flex justify-center items-center text-center`}>
+                <h1 className={`text-3xl md:text-4xl tracking-wider font-bold`}>
+                  FOLLOW US
+                </h1>
+              </div>
+              <div className="flex justify-between w-full space-x-10">
+                <a href='https://www.instagram.com/dhanak.iist/' target='_blank' className={`${style.button}`}>
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    height="24"
+                    width="24"
+                    xmlns="http://www.w3.org/2000/svg"
+                    aria-hidden="true"
+                    className="w-6 h-6 text-gray-800 dark:text-white"
+                  >
+                    <path
+                      clip-rule="evenodd"
+                      d="M3 8a5 5 0 0 1 5-5h8a5 5 0 0 1 5 5v8a5 5 0 0 1-5 5H8a5 5 0 0 1-5-5V8Zm5-3a3 3 0 0 0-3 3v8a3 3 0 0 0 3 3h8a3 3 0 0 0 3-3V8a3 3 0 0 0-3-3H8Zm7.597 2.214a1 1 0 0 1 1-1h.01a1 1 0 1 1 0 2h-.01a1 1 0 0 1-1-1ZM12 9a3 3 0 1 0 0 6 3 3 0 0 0 0-6Zm-5 3a5 5 0 1 1 10 0 5 5 0 0 1-10 0Z"
+                      fill-rule="evenodd"
+                      fill="currentColor"
+                    ></path>
+                  </svg>
+                </a>
+
+                <a href='https://x.com/dhanakiist' target='_blank' className={`${style.button}`}>
+                  <svg
+                    viewBox="0 0 512 512"
+                    height="1.7em"
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="svgIcontwit"
+                    fill="white"
+                  >
+                    <path
+                      d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"
+                    ></path>
+                  </svg>
+                </a>
+
+                <a href='https://www.youtube.com/@DhanakIIST' target='_blank' className={`${style.button}`}>
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                    height="24"
+                    width="24"
+                    xmlns="http://www.w3.org/2000/svg"
+                    aria-hidden="true"
+                    className="w-6 h-6 text-gray-800 dark:text-white"
+                  >
+                    <path
+                      clip-rule="evenodd"
+                      d="M21.7 8.037a4.26 4.26 0 0 0-.789-1.964 2.84 2.84 0 0 0-1.984-.839c-2.767-.2-6.926-.2-6.926-.2s-4.157 0-6.928.2a2.836 2.836 0 0 0-1.983.839 4.225 4.225 0 0 0-.79 1.965 30.146 30.146 0 0 0-.2 3.206v1.5a30.12 30.12 0 0 0 .2 3.206c.094.712.364 1.39.784 1.972.604.536 1.38.837 2.187.848 1.583.151 6.731.2 6.731.2s4.161 0 6.928-.2a2.844 2.844 0 0 0 1.985-.84 4.27 4.27 0 0 0 .787-1.965 30.12 30.12 0 0 0 .2-3.206v-1.516a30.672 30.672 0 0 0-.202-3.206Zm-11.692 6.554v-5.62l5.4 2.819-5.4 2.801Z"
+                      fill-rule="evenodd"
+                    ></path>
+                  </svg>
+                </a>
+
+                <a href='https://www.facebook.com/@iist.dhanak' target='_blank' className={`${style.button}`}>
+                  <svg
+                    viewBox="0 0 320 512"
+                    height="1.2em"
+                    fill="currentColor"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"
+                    ></path>
+                  </svg>
+                </a>
+
+              </div>
+            </motion.div>
+          </section>
 
         </motion.div>
       </div>

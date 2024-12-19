@@ -4,7 +4,7 @@ import NavbarLite from "@/components/NavbarLite";
 import style from "@/components/styles/SignUpCSS.module.css";
 import { firebaseConfig } from "@/app/firebase/config";
 import { auth } from "@/app/firebase/config";
-
+import Footer from "@/components/Footer";
 import { initializeApp } from "firebase/app";
 import {
   getAuth,
@@ -421,7 +421,7 @@ const SignUp = () => {
       <NavbarLite />
       {!otp && !verified && !googleVerified && (
         <motion.div
-          className={`flex flex-col items-center mt-20 sm:mt-20 md:mt-28 mb-6 mb:14`}
+          className={`min-h-[calc(100vh-80px)] flex flex-col items-center mt-20 sm:mt-20 md:mt-28`}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
@@ -471,10 +471,11 @@ const SignUp = () => {
             </div>
           </div>
         </motion.div>
+
       )}
 
       {otp && !verified && (
-        <div className={`grid justify-center items-center mt-6 md:mt-28 mb:14`}>
+        <div className={`min-h-[calc(100vh-80px)] grid justify-center mt-6 md:mt-28 mb:14`}>
           <div className={`${style.otpForm} border-[#343434] border`}>
             <span className={`${style.mainHeading}`}>Enter OTP</span>
             <div>
@@ -544,7 +545,7 @@ const SignUp = () => {
       )}
 
       {verified && !otp && (
-        <div className={`grid justify-center items-center mt-6 md:mt-10 mb:20`}>
+        <div className={`min-h-screen grid justify-center pb-24 mt-6 md:mt-10 mb:20`}>
           <div className={`${style.formBox} border border-[#343434] md:w-[380px]`}>
             <div className={`${style.form} md:w-[380px]`}>
               <span className={`${style.title}`}>Sign up</span>
@@ -638,7 +639,7 @@ const SignUp = () => {
         </div>
       )}
       {!otp && !verified && googleVerified &&
-        <div className={`grid justify-center items-center mt-6 md:mt-10 mb:10`}>
+        <div className={`min-h-screen grid justify-center pb-24 mt-6 md:mt-10 mb:10`}>
           <div className={`${style.formBox} border border-[#343434] md:w-[380px]`}>
             <div className={`${style.form} md:w-[380px]`}>
               <span className={`${style.title}`}>Sign up</span>
@@ -706,6 +707,7 @@ const SignUp = () => {
           </div>
         </div>
       }
+      <Footer />
     </div >
   )
 

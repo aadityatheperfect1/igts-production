@@ -2,7 +2,7 @@
 import { useState, useEffect } from "react";
 import NavbarLite from "@/components/NavbarLite";
 import style from "@/components/styles/SignUpCSS.module.css";
-
+import Footer from "@/components/Footer";
 import { firebaseConfig } from "@/app/firebase/config";
 import { auth } from "@/app/firebase/config";
 
@@ -231,7 +231,7 @@ const SignIn = () => {
   return (
     <div className={`min-h-screen topSection`}>
       <NavbarLite />
-      <motion.div className={`flex flex-col items-center mt-20 sm:mt-20 md:mt-14 mb-6 md:mb:0`}
+      <motion.div className={`min-h-screen flex flex-col items-center mt-20 sm:mt-20 md:mt-14`}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
@@ -395,6 +395,7 @@ const SignIn = () => {
             </div>
           </div>}
       </motion.div>
+      <Footer />
     </div >
   );
 };
