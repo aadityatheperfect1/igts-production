@@ -5,6 +5,10 @@ import User from "@/models/user.models";
 import { Payment } from "@/models/payments.models";
 import TestRegistrations from "@/models/testRegistrations.models";
 import crypto from "crypto";
+import { registrationEmail } from '@/components/registrationEmail'
+import mail, { sendMail } from "@/libs/mail";
+
+
 
 export async function POST(req) {
     try {
@@ -24,7 +28,6 @@ export async function POST(req) {
 
         // Fetch the user object using the userId
         const currUser = await User.findOne({ userId });
-        console.log(currUser._id);
         if (!currUser) {
             return NextResponse.json({ message: "User not found." }, { status: 404 });
         }
@@ -75,6 +78,15 @@ export async function POST(req) {
             // Update the currUser's registeredTests array atomically
             currUser.registeredTests.push(newRegistration._id);
             await currUser.save();
+
+            const send = async (to, name, subject, body) => {
+                "use server"
+                await sendMail({ to, name, subject, body });  // Pass as an object
+            };
+
+            const [testName, pack] = test.split(",").map(part => part.trim());
+
+            await send(currUser.email, currUser.name, "IGTS Registration Successful", registrationEmail(name, pid, testName, pack, payment.amount, currUser.email));  // Await the send function
 
             // Return a success response
             return NextResponse.json(

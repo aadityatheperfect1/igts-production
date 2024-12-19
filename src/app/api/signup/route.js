@@ -45,7 +45,6 @@ export async function POST(req) {
       );
     }
   } else {
-    console.log("Null chala");
     return NextResponse.json({ msg: "Error" }, { status: 401 });
   }
 }

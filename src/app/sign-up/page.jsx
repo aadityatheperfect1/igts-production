@@ -45,10 +45,6 @@ const SignUp = () => {
   const [googleUser, setGoogleuser] = useState({});
   const [otherBranch, setOtherBranch] = useState('');
 
-  useEffect(() => {
-    console.log(googleUser);
-  }, [googleUser]);
-
 
   const handleBranchChange = (e) => {
     setSelectedBranch(e.target.value);
@@ -68,7 +64,6 @@ const SignUp = () => {
         const user = userCredential.user;
 
         setGoogleuser(user);
-        console.log(user);
 
         // Check if user exists in the database
         const tempUser = await getUser(user.uid);
@@ -153,7 +148,6 @@ const SignUp = () => {
 
         if (res.status === 200) {
           const { nUser } = data;
-          console.log("getUser called from signup function");
           await getUser(nUser.userId);
           toast.success("Welcome to GATE Mock Test!");
           router.push('/dashboard');
@@ -197,10 +191,6 @@ const SignUp = () => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return emailRegex.test(email);
   }
-
-  useEffect(() => {
-    console.log(isFirst);
-  }, [isFirst]);
 
 
   const verifyEmail = async () => {
@@ -287,7 +277,6 @@ const SignUp = () => {
     const unsubscribe = onAuthStateChanged(auth, async (user) => {
       if (user) {
         if (isFirst) {
-          console.log("getUser called from onAuthStateChanged function")
           await getUser(user.uid);
           router.push("/home");
         }
@@ -357,7 +346,6 @@ const SignUp = () => {
               let { nUser } = await res.json();
               toast.dismiss(k);
               if (res.status == 200) {
-                console.log("getUser called from singup function")
                 await getUser(nUser.userId);
                 toast.success("Welcome to GATE Mock Test!");
                 router.push('/home');
@@ -376,8 +364,6 @@ const SignUp = () => {
             } else if (error.code === "auth/invalid-credential") {
               toast.error("Incorrect Email or Password");
             } else {
-              console.log(error.message);
-              console.log(error.code);
               let newErrorMsg = error.message.replace("Firebase: ", "");
               newErrorMsg = newErrorMsg.replace(`(${error.code}).`, "");
               toast.error(newErrorMsg);

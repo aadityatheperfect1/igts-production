@@ -70,10 +70,6 @@ export default function TestDetails({ params }) {
     }
   };
 
-  useEffect(() => {
-    console.log(userDetails);
-
-  }, [userDetails]);
 
   useEffect(() => {
     if (user) {

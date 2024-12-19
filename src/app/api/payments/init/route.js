@@ -21,8 +21,6 @@ export async function POST(req) {
     // Extract data from the API call
     const { amount, receipt, user, test } = await req.json();
 
-    console.log("Incoming API call with parameters:", { amount, receipt, user, test });
-
     // Connect to the database
     await connectDB();
 
@@ -36,7 +34,6 @@ export async function POST(req) {
     try {
         // Create an order using Razorpay API
         const response = await instance.orders.create(options);
-        console.log("Order created successfully:", response);
 
         // Save the order details in your database
         await Payment.create({

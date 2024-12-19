@@ -36,7 +36,6 @@ export async function POST(req) {
 
         let username = await generateUsername(email);
         let otp = Math.floor(1000 + Math.random() * 9000);
-        console.log("OTP Generated:", otp);
 
         await send(email, username, "GATE Mock OTP", signupOtp(otp));  // Await the send function
 

@@ -6,7 +6,6 @@ import { Payment } from "@/models/payments.models";
 
 export async function POST(req) {
     const { userId } = await req.json();
-    console.log(userId);
 
     // Check if userId is provided
     if (!userId) {

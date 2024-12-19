@@ -67,7 +67,6 @@ export default function Dashboard() {
                 body: JSON.stringify({ userId: id }),
             });
             const resjson = await res.json();
-            console.log(resjson);
             if (res.status === 200) {
                 setUserDetails(resjson.user);
                 setUserRole(resjson.user.role);
@@ -111,7 +110,6 @@ export default function Dashboard() {
                 toast.success("FAQ created successfully!", {
                     id: loadingToastId, // Replace loading toast with success
                 });
-                console.log("FAQ created successfully:", data);
                 setAnswer('');
                 setQuestion('');
                 setCategory(null);
@@ -121,7 +119,6 @@ export default function Dashboard() {
                 toast.error("Failed to create FAQ: " + response.statusText, {
                     id: loadingToastId, // Replace loading toast with error
                 });
-                console.log(response);
                 console.error("Failed to create FAQ:", response.statusText);
             }
         } catch (error) {
@@ -176,9 +173,6 @@ export default function Dashboard() {
         }
     }, [user]);
 
-    useEffect(() => {
-        console.log(userDetails);
-    }, [userDetails]);
 
     function LoadAuth() {
         initializeApp(firebaseConfig);
@@ -214,10 +208,6 @@ export default function Dashboard() {
     const handleBranchChange = (e) => {
         setSelectedBranch(e.target.value);
     };
-
-    useEffect(() => {
-        console.log(category, question, answer);
-    }, [category, question, answer]);
 
 
 
@@ -474,7 +464,6 @@ export default function Dashboard() {
                                                             <button
                                                                 onClick={() => {
                                                                     setCurrOption('addFaq');
-                                                                    console.log(category);
                                                                 }}
                                                                 className={`${currOption === "addFaq" ? "bg-[#e9eef2]" : ""} hover:bg-[#e9eef2] w-full flex gap-2 ${style.fonttAverta} text-[#3c4852] font-semibold px-3 py-2 block rounded-lg`}>
                                                                 <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#3c4852"><path d="M560-360q17 0 29.5-12.5T602-402q0-17-12.5-29.5T560-444q-17 0-29.5 12.5T518-402q0 17 12.5 29.5T560-360Zm-30-128h60q0-29 6-42.5t28-35.5q30-30 40-48.5t10-43.5q0-45-31.5-73.5T560-760q-41 0-71.5 23T446-676l54 22q9-25 24.5-37.5T560-704q24 0 39 13.5t15 36.5q0 14-8 26.5T578-596q-33 29-40.5 45.5T530-488ZM320-240q-33 0-56.5-23.5T240-320v-480q0-33 23.5-56.5T320-880h480q33 0 56.5 23.5T880-800v480q0 33-23.5 56.5T800-240H320Zm0-80h480v-480H320v480ZM160-80q-33 0-56.5-23.5T80-160v-560h80v560h560v80H160Zm160-720v480-480Z" /></svg>
@@ -531,7 +520,6 @@ export default function Dashboard() {
                                         <button
                                             onClick={() => {
                                                 setCurrOption('addFaq');
-                                                console.log(category);
                                             }}
                                             className={`text-sm sm:text-md flex items-center gap-2 text-[#3c4852] font-semibold p-2 rounded-lg ${currOption === 'addFaq' ? 'bg-[#e9eef2]' : ''}`}>
                                             <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#3c4852"><path d="M560-360q17 0 29.5-12.5T602-402q0-17-12.5-29.5T560-444q-17 0-29.5 12.5T518-402q0 17 12.5 29.5T560-360Zm-30-128h60q0-29 6-42.5t28-35.5q30-30 40-48.5t10-43.5q0-45-31.5-73.5T560-760q-41 0-71.5 23T446-676l54 22q9-25 24.5-37.5T560-704q24 0 39 13.5t15 36.5q0 14-8 26.5T578-596q-33 29-40.5 45.5T530-488ZM320-240q-33 0-56.5-23.5T240-320v-480q0-33 23.5-56.5T320-880h480q33 0 56.5 23.5T880-800v480q0 33-23.5 56.5T800-240H320Zm0-80h480v-480H320v480ZM160-80q-33 0-56.5-23.5T80-160v-560h80v560h560v80H160Zm160-720v480-480Z" /></svg>

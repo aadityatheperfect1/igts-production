@@ -302,7 +302,7 @@ export const signupOtp = (otp) => {
                                       <img
                                         align="center"
                                         border="0"
-                                        src="https://ik.imagekit.io/dhanak2k25/images/image-1.png?updatedAt=1731781577582"
+                                        src="https://ik.imagekit.io/dhanak2k25/images/image-1.png?updatedAt=1734628638272"
                                         alt=""
                                         title=""
                                         style="
