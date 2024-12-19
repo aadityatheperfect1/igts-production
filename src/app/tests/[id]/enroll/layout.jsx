@@ -3,7 +3,7 @@ export const metadata = {
   description:
     "Dhanak 2k25 is a cultural fest organised by the students of Indian Institute of Space Science and Technology, Thiruvananthapuram.",
   icons: {
-    icon: "icon.png", // /public path
+    icon: "/images/logo_half.png", // /public path
   },
   url: "https://dhanak.iist.org.in",
   type: "website",
