@@ -54,6 +54,7 @@ export default function Dashboard() {
     const [question, setQuestion] = useState("");
     const [answer, setAnswer] = useState("");
     const [otherBranch, setOtherBranch] = useState('');
+    const [registeredTests, setRegisteredTests] = useState(null);
 
 
     const getUser = async (id) => {
@@ -66,6 +67,7 @@ export default function Dashboard() {
                 body: JSON.stringify({ userId: id }),
             });
             const resjson = await res.json();
+            console.log(resjson);
             if (res.status === 200) {
                 setUserDetails(resjson.user);
                 setUserRole(resjson.user.role);
@@ -74,6 +76,7 @@ export default function Dashboard() {
                 setCollegeName(resjson.user.college);
                 setMobileNumber(resjson.user.mobile);
                 setSelectedBranch(resjson.user.branch);
+                setRegisteredTests(resjson.user.registeredTests);
             } else {
                 toast.error("Failed to get user details.")
             }
@@ -81,6 +84,8 @@ export default function Dashboard() {
             console.error("Error fetching user details:", error);
         }
     };
+
+
 
     const addFAQ = async () => {
         // Show loading toast
@@ -215,6 +220,7 @@ export default function Dashboard() {
     }, [category, question, answer]);
 
 
+
     function AccountSection() {
         return (
             <div className={`bg-white font-bold rounded-2xl shadow-lg  border border-black ${style.fonttAverta}`}>
@@ -224,17 +230,14 @@ export default function Dashboard() {
                         <svg xmlns="http://www.w3.org/2000/svg" height="30px" viewBox="0 -960 960 960" width="30px" fill="#FFFFFF"><path d="M234-276q51-39 114-61.5T480-360q69 0 132 22.5T726-276q35-41 54.5-93T800-480q0-133-93.5-226.5T480-800q-133 0-226.5 93.5T160-480q0 59 19.5 111t54.5 93Zm246-164q-59 0-99.5-40.5T340-580q0-59 40.5-99.5T480-720q59 0 99.5 40.5T620-580q0 59-40.5 99.5T480-440Zm0 360q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q53 0 100-15.5t86-44.5q-39-29-86-44.5T480-280q-53 0-100 15.5T294-220q39 29 86 44.5T480-160Zm0-360q26 0 43-17t17-43q0-26-17-43t-43-17q-26 0-43 17t-17 43q0 26 17 43t43 17Zm0-60Zm0 360Z" /></svg>
                         <h1 className="text-2xl font-semibold text-white">Account Information</h1>
                     </div>
-
                 </div>
                 {userDetails ?
                     <div>
                         <div className={`md:py-4 py-6 px-6`}>
-                            <div className={`grid justify-center items-center my-0 md:my-10`}>
-
-
-                                <div className="grid grid-cols-1 lg:grid-cols-2 justify-center items-center gap-6 lg:gap-8 lg:mx-8">
+                            <div className={`flex justify-center items-center my-0 md:my-10`}>
+                                <div className="w-full grid grid-cols-1 lg:grid-cols-2 justify-center items-center gap-6 lg:gap-8 lg:mx-8">
                                     {/* Profile Card */}
-                                    <div className="flex flex-col justify-center items-center border border-gray-300 bg-gray-50 rounded-xl shadow-md p-5 lg:p-6 h-full w-full max-w-xs lg:max-w-sm">
+                                    <div className="flex flex-col justify-center items-center border border-gray-300 bg-gray-50 rounded-xl shadow-md p-5 lg:p-6 h-full w-full">
                                         <img
                                             className="w-24 h-24 shadow-lg rounded-full border-[3px] border-[#0072bb] object-cover"
                                             src="/images/profile.png"
@@ -248,7 +251,7 @@ export default function Dashboard() {
                                     </div>
 
                                     {/* Details Section */}
-                                    <div className="flex flex-col gap-6 p-5 lg:p-10 h-full w-full max-w-xs lg:max-w-sm bg-white border border-gray-200 rounded-lg shadow-md">
+                                    <div className="flex flex-col gap-6 p-5 lg:p-10 h-full w-full bg-white border border-gray-200 rounded-lg shadow-md">
                                         <div className="flex flex-col items-center text-center gap-2">
                                             <span className="text-lg font-semibold text-[#0056a3]">Branch</span>
                                             <p className="text-base text-gray-800">{getBranchName(userDetails.branch)}</p>
@@ -260,8 +263,6 @@ export default function Dashboard() {
                                     </div>
 
                                 </div>
-
-
 
                             </div>
 
@@ -283,6 +284,7 @@ export default function Dashboard() {
     }
 
     function Registrations() {
+
         return (
 
             <div className={`bg-white font-bold flex flex-col justify-between rounded-2xl shadow-lg  border border-black ${style.fonttAverta}`}>
@@ -295,36 +297,79 @@ export default function Dashboard() {
                 </div>
                 {userDetails ?
                     <div>
-                        <div className={`md:py-4 py-6 px-6`}>
-                            <div className={`grid justify-center items-center md:my-10`}>
-                                <div className={`flex flex-col justify-center items-center`}>
-                                    <div className="flex flex-col p-6 gap-2 w-full rounded-2xl bg-white border border-gray-400 shadow-lg items-center max-w-sm mx-auto">
-                                        <div className={`text-center`}>
-                                            <p className={`${style.fonttAverta} text-sm font-bold`}>
-                                                You do not have any registrations.
+                        {registeredTests.length == 0 &&
+                            <div className={`md:py-4 py-6 px-6`}>
+                                <div className={`grid lg:flex justify-center items-center md:my-10 w-full mx-auto`}>
+                                    <div className={`flex flex-col justify-center items-center`}>
+                                        <div className="flex flex-col p-6 gap-2 w-full rounded-2xl bg-white border border-gray-400 shadow-lg items-center max-w-sm mx-auto">
+                                            <div className={`text-center`}>
+                                                <p className={`${style.fonttAverta} text-sm font-bold`}>
+                                                    You do not have any registrations.
+                                                </p>
+                                                <p className={`${style.fonttAverta} text-sm font-bold pt-1`}>
+                                                    Please <Link className={`text-[#1e91d6] hover:underline`} href={'tests'}>register</Link> for the test
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        }
 
-                                            </p>
-                                            <p className={`${style.fonttAverta} text-sm font-bold pt-1`}>
-                                                Please <Link className={`text-[#1e91d6]`} href={'tests'}>register</Link> for the test
-                                            </p>
+                        {registeredTests &&
+                            registeredTests.map((registration, index) => (
+                                <div key={registration._id} className={`flex-col lg:flex lg:flex-wrap mx-4 md:mx-10 mt-8 mb-2`}>
+                                    <div className="flex-col justify-center items-center bg-white border border-gray-400 shadow-lg rounded-xl p-5 lg:p-6 h-full w-full mb-4">
+                                        <div className="text-left space-y-4 w-full">
+                                            <h3 className="text-xl md:text-2xl lg:text-3xl font-semibold text-black">
+                                                GATE Mock for {registration.test
+                                                    ? registration.test.split(',')[0].includes('Electronics and Communication Engineering')
+                                                        ? 'Electronics and Communication Engineering' // Replace with 'ECE' if the name includes Electronics and Communication Engineering
+                                                        : registration.test.split(',')[0]
+                                                    : "Test Name Not Available"}
+                                            </h3>
+                                            <div className="grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-8">
+                                                <div className={`space-y-2`}>
+                                                    <p className="text-md text-gray-600">
+                                                        <strong className={`text-[#4d2deb]`}>Package:</strong> {registration.test ? registration.test.split(',')[1] : "Package Not Available"}
+                                                    </p>
+                                                    <p className="text-md text-gray-600">
+                                                        <strong className={`text-[#4d2deb]`}>Name:</strong> {registration.userId.name}
+                                                    </p>
+                                                    <p className="text-md text-gray-600">
+                                                        <strong className={`text-[#4d2deb]`}>Email:</strong> {registration.userId.email}
+                                                    </p>
+                                                </div>
+                                                <div className={`space-y-2`}>
+                                                    <p className="text-md text-gray-600 flex gap-1">
+                                                        <strong className={`text-[#4d2deb]`}>Payment Status: </strong> <strong>{registration.payment.status === 'paid' && 'Paid'}</strong> <svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px" fill="#008000"><path d="m424-296 282-282-56-56-226 226-114-114-56 56 170 170Zm56 216q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z" /></svg>
+                                                    </p>
+                                                    <p className="text-md text-gray-600">
+                                                        <strong className={`text-[#4d2deb]`}>Amount:</strong> Rs. {registration.payment.amount} /-
+                                                    </p>
+                                                    <p className="text-md text-gray-600">
+                                                        <strong className={`text-[#4d2deb]`}>PID:</strong> {registration.pid}
+                                                    </p>
+                                                </div>
+                                            </div>
                                         </div>
 
                                     </div>
-
                                 </div>
-                            </div>
+                            ))
+                        }
 
-                        </div>
                         <div className={`bg-[#1E91D6] px-4 flex items-center h-8 rounded-b-2xl`}>
                             <p className={`${style.fonttAverta} text-white text-sm`}>Facing issues?, Please <Link href={'/contact-us'} className={`bg-none underline`}>Contact us.</Link></p>
-
                         </div>
                     </div> :
                     <div className={`md:py-4 py-6 px-6`}>
                         <div className={`grid justify-center items-center my-0 md:my-10`}>
                             <div className={``}><Loader /></div>
                         </div>
-                    </div>}
+                    </div>
+                }
+
             </div>)
     }
 

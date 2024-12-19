@@ -191,7 +191,7 @@ export default function Enroll({ params }) {
 
     toast.dismiss(t);
     const res = await loadScript(
-      "https://checkout.razorpay.com/v1/checkout.js"
+      "https://checkout.razorpay.com/v2/checkout.js"
     );
     if (!res) {
       toast.error("Razropay failed to load!!");
@@ -228,7 +228,7 @@ export default function Enroll({ params }) {
         });
         let rdata = await res.json();
         if (res.status !== 200) {
-          toast.error("Payment failed");
+          toast.error("Error, Payment failed");
           return;
         }
         toast.success("Payment successful");

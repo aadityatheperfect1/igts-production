@@ -1,10 +1,10 @@
 import { NextResponse } from "next/server";
 import mongoose from "mongoose";
-import { ObjectId } from "mongodb";
 import dbConnect from "@/libs/mongodb"; // Ensure you have a DB connection utility
 import User from "@/models/user.models";
 import { Payment } from "@/models/payments.models";
 import TestRegistrations from "@/models/testRegistrations.models";
+import crypto from "crypto";
 
 export async function POST(req) {
     try {
@@ -49,36 +49,43 @@ export async function POST(req) {
             );
         }
 
-        // Update the payment object
-        payment.paymentId = pid;
-        payment.signature = signature;
-        payment.status = "paid";
-        payment.updatedTime = Date.now(); // Update the timestamp
-        await payment.save();
+        const cryptoObj = crypto.createHmac("sha256", process.env.RAZORPAY_SECRET);
+        const generatedSign = cryptoObj.update(oid + "|" + pid).digest("hex");
 
-        // Create a new test registration object
-        const newRegistration = await TestRegistrations.create({
-            pid,
-            oid,
-            signature,
-            name,
-            test,
-            userId: currUser._id.toString(), // Convert ObjectId to String
-            payment: payment._id.toString(), // Ensure payment._id is also converted to string
-        });
+        if (generatedSign === signature) {
+            // Update the payment object
+            payment.paymentId = pid;
+            payment.signature = signature;
+            payment.status = "paid";
+            payment.updatedTime = Date.now(); // Update the timestamp
+            await payment.save();
 
-        // Update the currUser's registeredTests array atomically
-        currUser.registeredTests.push(newRegistration._id);
-        await currUser.save();
 
-        // Return a success response
-        return NextResponse.json(
-            {
-                message: "Test registration successful.",
-                registration: newRegistration,
-            },
-            { status: 201 }
-        );
+            // Create a new test registration object
+            const newRegistration = await TestRegistrations.create({
+                pid,
+                oid,
+                signature,
+                name,
+                test,
+                userId: currUser._id.toString(), // Convert ObjectId to String
+                payment: payment._id.toString(), // Ensure payment._id is also converted to string
+            });
+
+            // Update the currUser's registeredTests array atomically
+            currUser.registeredTests.push(newRegistration._id);
+            await currUser.save();
+
+            // Return a success response
+            return NextResponse.json(
+                {
+                    message: "Test registration successful.",
+                    registration: newRegistration,
+                },
+                { status: 200 }
+            );
+        }
+
     } catch (error) {
         console.error("Error handling test registration request:", error);
         return NextResponse.json(
