@@ -2,6 +2,7 @@ import connectDB from "@/libs/mongodb";
 import User from "@/models/user.models";
 import { NextResponse } from "next/server";
 import TestRegistration from "@/models/testRegistrations.models";
+import { Payment } from "@/models/payments.models";
 
 export async function POST(req) {
     const { userId } = await req.json();
