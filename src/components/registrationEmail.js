@@ -218,27 +218,218 @@ table, td { color: #000000; } @media (max-width: 480px) { #u_content_image_1 .v-
   </tbody>
 </table>
 
-<table id="u_content_text_6" style="font-family:arial,helvetica,sans-serif;" role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0">
-  <tbody>
-    <tr>
-      <td class="v-container-padding-padding" style="overflow-wrap:break-word;word-break:break-word;padding:10px 60px;font-family:arial,helvetica,sans-serif;" align="left">
-        
-  <div class="v-font-size" style="font-size: 14px; color: #616161; line-height: 140%; text-align: center; word-wrap: break-word;">
-    <ul>
-<li style="line-height: 22.4px; text-align: left;"><span style="font-size: 16px; line-height: 22.4px; font-family: Cabin, sans-serif;"><span style="color: #000000; line-height: 22.4px;"><span style="line-height: 22.4px;"><strong>Your Name: ${name}</strong></span></span><span style="color: #000000; line-height: 22.4px;"><span style="line-height: 22.4px;"></span></span></span></li>
-<li style="line-height: 22.4px; text-align: left;"><span style="color: #000000; line-height: 22.4px; font-size: 16px; font-family: Cabin, sans-serif;"><span style="line-height: 22.4px;"><strong>Your Email: ${email}</strong></span></span></li>
-<li style="line-height: 22.4px; text-align: left;"><span style="font-size: 16px; line-height: 22.4px; font-family: Cabin, sans-serif;"><span style="color: #000000; line-height: 22.4px;"><span style="line-height: 22.4px;"><strong>Registered for: GATE Mock - ${test}</strong></span></span></span></li>
-<li style="line-height: 22.4px; text-align: left;"><span style="font-size: 16px; line-height: 22.4px; font-family: Cabin, sans-serif;"><span style="color: #000000; line-height: 22.4px;"><span style="line-height: 22.4px;"><strong>Package: ${packName}</strong></span></span></span></li>
-<li style="line-height: 22.4px; text-align: left;"><span style="font-size: 16px; line-height: 22.4px; font-family: Cabin, sans-serif;"><span style="color: #000000; line-height: 22.4px;"><span style="line-height: 22.4px;"><strong>Payment Status: ${'Paid'}</strong></span></span></span></li>
-<li style="line-height: 22.4px; text-align: left;"><span style="font-size: 16px; line-height: 22.4px; font-family: Cabin, sans-serif;"><span style="color: #000000; line-height: 22.4px;"><span style="line-height: 22.4px;"><strong>Paid Amount: Rs ${amount} /-</strong></span></span></span></li>
-<li style="line-height: 22.4px; text-align: left;"><span style="font-size: 16px; line-height: 22.4px; font-family: Cabin, sans-serif;"><span style="color: #000000; line-height: 22.4px;"><span style="line-height: 22.4px;"><strong>Payment ID: ${pid}</strong></span></span></span></li>
-</ul>
-  </div>
-
-      </td>
-    </tr>
-  </tbody>
-</table>
+<table
+    id="u_content_text_6"
+    style="font-family: arial, helvetica, sans-serif"
+    role="presentation"
+    cellpadding="0"
+    cellspacing="0"
+    width="100%"
+    border="0"
+  >
+    <tbody>
+      <tr>
+        <td
+          class="v-container-padding-padding"
+          style="
+            overflow-wrap: break-word;
+            word-break: break-word;
+            padding: 14px 60px;
+            font-family: arial, helvetica, sans-serif;
+          "
+          align="left"
+        >
+          <div
+            class="v-font-size"
+            style="
+              font-size: 14px;
+              color: #616161;
+              letter-spacing: 0.1px;
+              line-height: 220%;
+              text-align: center;
+              word-wrap: break-word;
+            "
+          >
+            <p
+              style="
+                line-height: 220%;
+                text-align: left;
+                margin: 0px;
+              "
+            >
+              <span
+                style="
+                  font-size: 16px;
+                  line-height: 35.2px;
+                  font-family: Cabin, sans-serif;
+                "
+                ><span
+                  style="
+                    color: #000000;
+                    line-height: 35.2px;
+                  "
+                  ><span style="line-height: 35.2px"
+                    ><strong>Name: </strong>${name}</span
+                  ></span
+                ><span
+                  style="
+                    color: #000000;
+                    line-height: 35.2px;
+                  "
+                  ><span
+                    style="line-height: 35.2px"
+                  ></span></span
+              ></span>
+            </p>
+            <p
+              style="
+                line-height: 220%;
+                text-align: left;
+                margin: 0px;
+              "
+            >
+              <span
+                style="
+                  color: #000000;
+                  line-height: 35.2px;
+                  font-size: 16px;
+                  font-family: Cabin, sans-serif;
+                "
+                ><span style="line-height: 35.2px"
+                  ><strong>Email: </strong>${email}</span
+                ></span
+              >
+            </p>
+            <p
+              style="
+                line-height: 220%;
+                text-align: left;
+                margin: 0px;
+              "
+            >
+              <span
+                style="
+                  font-size: 16px;
+                  line-height: 35.2px;
+                  font-family: Cabin, sans-serif;
+                "
+                ><span
+                  style="
+                    color: #000000;
+                    line-height: 35.2px;
+                  "
+                  ><span style="line-height: 35.2px"
+                    ><strong>Registered for: </strong
+                    >${test}</span
+                  ></span
+                ></span
+              >
+            </p>
+            <p
+              style="
+                line-height: 220%;
+                text-align: left;
+                margin: 0px;
+              "
+            >
+              <span
+                style="
+                  font-size: 16px;
+                  line-height: 35.2px;
+                  font-family: Cabin, sans-serif;
+                "
+                ><span
+                  style="
+                    color: #000000;
+                    line-height: 35.2px;
+                  "
+                  ><span style="line-height: 35.2px"
+                    ><strong>Package: </strong
+                    >${pack}</span
+                  ></span
+                ></span
+              >
+            </p>
+            <p
+              style="
+                line-height: 220%;
+                text-align: left;
+                margin: 0px;
+              "
+            >
+              <span
+                style="
+                  font-size: 16px;
+                  line-height: 35.2px;
+                  font-family: Cabin, sans-serif;
+                "
+                ><span
+                  style="
+                    color: #000000;
+                    line-height: 35.2px;
+                  "
+                  ><span style="line-height: 35.2px"
+                    ><strong>Payment Status: </strong
+                    >${Paid}</span
+                  ></span
+                ></span
+              >
+            </p>
+            <p
+              style="
+                line-height: 220%;
+                text-align: left;
+                margin: 0px;
+              "
+            >
+              <span
+                style="
+                  font-size: 16px;
+                  line-height: 35.2px;
+                  font-family: Cabin, sans-serif;
+                "
+                ><span
+                  style="
+                    color: #000000;
+                    line-height: 35.2px;
+                  "
+                  ><span style="line-height: 35.2px"
+                    ><strong>Paid Amount: </strong
+                    >${amount}</span
+                  ></span
+                ></span
+              >
+            </p>
+            <p
+              style="
+                line-height: 220%;
+                text-align: left;
+                margin: 0px;
+              "
+            >
+              <span
+                style="
+                  font-size: 16px;
+                  line-height: 35.2px;
+                  font-family: Cabin, sans-serif;
+                "
+                ><span
+                  style="
+                    color: #000000;
+                    line-height: 35.2px;
+                  "
+                  ><span style="line-height: 35.2px"
+                    ><strong>Payment ID: </strong
+                    >${pid}</span
+                  ></span
+                ></span
+              >
+            </p>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
 
   <!--[if (!mso)&(!IE)]><!--></div><!--<![endif]-->
   </div>
@@ -270,7 +461,7 @@ table, td { color: #000000; } @media (max-width: 480px) { #u_content_image_1 .v-
         
   <div class="v-font-size" style="font-size: 14px; color: #000000; line-height: 160%; text-align: center; word-wrap: break-word;">
 <p style="font-size: 14px; line-height: 160%; margin: 0px;"><span style="color: #000000; line-height: 22.4px;">if you have any questions</span></p>
-<p style="font-size: 14px; line-height: 160%; margin: 0px;"><span style="color: #000000; line-height: 22.4px;">please email us at <span style="line-height: 22.4px; color: #674cee;"><a rel="noopener" href="https://www.unlayer.com" target="_blank" style="color: rgb(103, 76, 238); text-decoration: underline; line-height: inherit;">dhanak2k25@gmail.com</a></span> or visit our FAQS.</span></p></div>
+<p style="font-size: 14px; line-height: 160%; margin: 0px;"><span style="color: #000000; line-height: 22.4px;">please email us at <span style="line-height: 22.4px; color: #674cee;"><a rel="noopener" href="https://https://igts.dhanakiist.co.in/contact-us" target="_blank" style="color: rgb(103, 76, 238); text-decoration: underline; line-height: inherit;">dhanak2k25@gmail.com</a></span> or visit our FAQS.</span></p></div>
 
       </td>
     </tr>
