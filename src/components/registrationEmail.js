@@ -377,7 +377,7 @@ table, td { color: #000000; } @media (max-width: 480px) { #u_content_image_1 .v-
 
   <!--[if (mso)|(IE)]><td style="padding:5px 15px"><![endif]-->
   
-<a href="https://https://igts.dhanakiist.co.in/tests" target="_self" style="padding: 5px 15px; display: inline-block; color: rgb(103, 76, 238); font-size: 14px; text-decoration: none; line-height: inherit;" class="v-padding v-font-size">Tests
+<a href="https://igts.dhanakiist.co.in/tests" target="_self" style="padding: 5px 15px; display: inline-block; color: rgb(103, 76, 238); font-size: 14px; text-decoration: none; line-height: inherit;" class="v-padding v-font-size">Tests
     </a>
   
   <!--[if (mso)|(IE)]></td><![endif]-->
@@ -391,7 +391,7 @@ table, td { color: #000000; } @media (max-width: 480px) { #u_content_image_1 .v-
 
   <!--[if (mso)|(IE)]><td style="padding:5px 15px"><![endif]-->
   
-<a href="https://https://igts.dhanakiist.co.in/about" target="_self" style="padding: 5px 15px; display: inline-block; color: rgb(103, 76, 238); font-size: 14px; text-decoration: none; line-height: inherit;" class="v-padding v-font-size">About Us
+<a href="https://igts.dhanakiist.co.in/about" target="_self" style="padding: 5px 15px; display: inline-block; color: rgb(103, 76, 238); font-size: 14px; text-decoration: none; line-height: inherit;" class="v-padding v-font-size">About Us
     </a>
   
   <!--[if (mso)|(IE)]></td><![endif]-->
@@ -405,7 +405,7 @@ table, td { color: #000000; } @media (max-width: 480px) { #u_content_image_1 .v-
 
   <!--[if (mso)|(IE)]><td style="padding:5px 15px"><![endif]-->
   
-<a href="https://https://igts.dhanakiist.co.in/contact-us" target="_self" style="padding: 5px 15px; display: inline-block; color: rgb(103, 76, 238); font-size: 14px; text-decoration: none; line-height: inherit;" class="v-padding v-font-size">Contact US
+<a href="https://igts.dhanakiist.co.in/contact-us" target="_self" style="padding: 5px 15px; display: inline-block; color: rgb(103, 76, 238); font-size: 14px; text-decoration: none; line-height: inherit;" class="v-padding v-font-size">Contact US
     </a>
   
   <!--[if (mso)|(IE)]></td><![endif]-->
