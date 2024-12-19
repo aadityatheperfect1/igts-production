@@ -345,7 +345,7 @@ table, td { color: #000000; } @media (max-width: 480px) { #u_content_image_1 .v-
                   "
                   ><span style="line-height: 35.2px"
                     ><strong>Package: </strong
-                    >${pack}</span
+                    >${packName}</span
                   ></span
                 ></span
               >
