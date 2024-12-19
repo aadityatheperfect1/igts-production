@@ -320,7 +320,7 @@ table, td { color: #000000; } @media (max-width: 480px) { #u_content_image_1 .v-
                   "
                   ><span style="line-height: 35.2px"
                     ><strong>Registered for: </strong
-                    >${test}</span
+                    >GATE Mock - ${test}</span
                   ></span
                 ></span
               >
@@ -370,7 +370,7 @@ table, td { color: #000000; } @media (max-width: 480px) { #u_content_image_1 .v-
                   "
                   ><span style="line-height: 35.2px"
                     ><strong>Payment Status: </strong
-                    >${Paid}</span
+                    >${'Paid'}</span
                   ></span
                 ></span
               >
@@ -395,7 +395,7 @@ table, td { color: #000000; } @media (max-width: 480px) { #u_content_image_1 .v-
                   "
                   ><span style="line-height: 35.2px"
                     ><strong>Paid Amount: </strong
-                    >${amount}</span
+                    >Rs. ${amount} /-</span
                   ></span
                 ></span
               >

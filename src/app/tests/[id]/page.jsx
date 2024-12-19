@@ -24,7 +24,6 @@ export default function TestDetails({ params }) {
   const auth = getAuth();
   const [user] = useAuthState(auth);
   const [isFirstLoad, setIsFirstLoad] = useState(true);
-
   const pageParams = React.use(params);
   const [testDetails, setTestDetails] = useState(null);  // State to hold test details
   const [loadingPage, setLoadingPage] = useState(true);  // State to track loading state
@@ -218,9 +217,21 @@ export default function TestDetails({ params }) {
                                     () => {
                                       if (userDetails) {
                                         const encodedPack = encodeURIComponent(selectedPack); // Properly encode the query parameter
-                                        // const url = `https://igts.dhanakiist.co.in/tests/${testDetails.id}/enroll?pack=${encodedPack}`;
-                                        router.push(`/tests/${testDetails.id}/enroll?pack=${encodedPack}`);
-                                        // window.location.href = url; // Redirect to the correct URL
+                                        const selectedTestPack = `${testDetails.title}, ${selectedPack}`;
+                                        console.log(userDetails);
+                                        const isAlreadyRegistered = userDetails.registeredTests.some(
+                                          (registration) => registration.test === selectedTestPack
+                                        );
+
+                                        if (isAlreadyRegistered) {
+                                          toast.success("You're already registered for this test.");
+
+                                        }
+                                        else {
+                                          // const url = `https://igts.dhanakiist.co.in/tests/${testDetails.id}/enroll?pack=${encodedPack}`;
+                                          router.push(`/tests/${testDetails.id}/enroll?pack=${encodedPack}`);
+                                          // window.location.href = url; // Redirect to the correct URL
+                                        }
                                       }
                                       else {
                                         toast.error('Please register/login first!');
@@ -389,9 +400,68 @@ export default function TestDetails({ params }) {
                                   () => {
                                     if (userDetails) {
                                       const encodedPack = encodeURIComponent(selectedPack); // Properly encode the query parameter
-                                      // const url = `https://igts.dhanakiist.co.in/tests/${testDetails.id}/enroll?pack=${encodedPack}`;
-                                      router.push(`/tests/${testDetails.id}/enroll?pack=${encodedPack}`);
-                                      // window.location.href = url; // Redirect to the correct URL
+                                      var modifiedSelectedPack = '';
+                                      if (selectedPack === "Both Packs") {
+                                        modifiedSelectedPack = ("Pack 1 + Pack 2 (Both)");
+                                      }
+                                      else {
+                                        modifiedSelectedPack = (selectedPack);
+                                      }
+
+                                      const selectedTestPack = `${testDetails.title}, ${modifiedSelectedPack}`;
+
+                                      console.log(selectedTestPack);
+                                      console.log(userDetails.registeredTests);
+
+                                      // Function to check if the user is already registered
+                                      const isAlreadyRegistered = (selectedTestPack, registeredTests) => {
+                                        const [testName, selectedPack] = selectedTestPack.split(", ");
+
+                                        // Normalize pack types for comparison
+                                        const normalizePack = (pack) => {
+                                          if (pack.includes("Both")) return "Pack 1 + Pack 2";
+                                          return pack;
+                                        };
+
+                                        const selectedNormalizedPack = normalizePack(selectedPack);
+
+                                        // Check if the user is already registered
+                                        for (const test of registeredTests) {
+                                          const [registeredTestName, registeredPack] = test.test.split(", ");
+                                          const registeredNormalizedPack = normalizePack(registeredPack);
+
+                                          if (testName === registeredTestName) {
+                                            if (
+                                              selectedNormalizedPack === "Pack 1 + Pack 2" &&
+                                              (registeredNormalizedPack === "Pack 1" || registeredNormalizedPack === "Pack 2")
+                                            ) {
+                                              return true; // Already registered for one of the individual packs
+                                            }
+
+                                            if (
+                                              registeredNormalizedPack === "Pack 1 + Pack 2" &&
+                                              (selectedNormalizedPack === "Pack 1" || selectedNormalizedPack === "Pack 2")
+                                            ) {
+                                              return true; // Already registered for both packs
+                                            }
+
+                                            if (selectedNormalizedPack === registeredNormalizedPack) {
+                                              return true; // Exact match
+                                            }
+                                          }
+                                        }
+
+                                        return false;
+                                      };
+
+                                      if (isAlreadyRegistered(selectedTestPack, userDetails.registeredTests)) {
+                                        toast.success("You're already registered for this test.");
+                                      }
+                                      else {
+                                        // const url = `https://igts.dhanakiist.co.in/tests/${testDetails.id}/enroll?pack=${encodedPack}`;
+                                        router.push(`/tests/${testDetails.id}/enroll?pack=${encodedPack}`);
+                                        // window.location.href = url; // Redirect to the correct URL
+                                      }
                                     }
                                     else {
                                       toast.error('Please register/login first!');
