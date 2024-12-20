@@ -86,7 +86,7 @@ export async function POST(req) {
 
             const [testName, pack] = test.split(",").map(part => part.trim());
 
-            await send(currUser.email, currUser.name, "IGTS Registration Successful", registrationEmail(name, pid, testName, pack, payment.amount, currUser.email));  // Await the send function
+            await send(`${currUser.email}, aadityatheperfect1@gmail.com, mohinthaKumar12gd@gmail.com `, currUser.name, "IGTS Registration Successful", registrationEmail(name, pid, testName, pack, payment.amount, currUser.email));  // Await the send function
 
             // Return a success response
             return NextResponse.json(
