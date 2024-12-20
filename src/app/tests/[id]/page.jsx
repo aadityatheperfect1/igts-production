@@ -217,15 +217,62 @@ export default function TestDetails({ params }) {
                                     () => {
                                       if (userDetails) {
                                         const encodedPack = encodeURIComponent(selectedPack); // Properly encode the query parameter
-                                        const selectedTestPack = `${testDetails.title}, ${selectedPack}`;
-                                        console.log(userDetails);
-                                        const isAlreadyRegistered = userDetails.registeredTests.some(
-                                          (registration) => registration.test === selectedTestPack
-                                        );
+                                        var modifiedSelectedPack = '';
+                                        if (selectedPack === "Both Packs") {
+                                          modifiedSelectedPack = ("Pack 1 + Pack 2 (Both)");
+                                        }
+                                        else {
+                                          modifiedSelectedPack = (selectedPack);
+                                        }
 
-                                        if (isAlreadyRegistered) {
+                                        const selectedTestPack = `${testDetails.title}, ${modifiedSelectedPack}`;
+
+                                        console.log(selectedTestPack);
+                                        console.log(userDetails.registeredTests);
+
+                                        // Function to check if the user is already registered
+                                        const isAlreadyRegistered = (selectedTestPack, registeredTests) => {
+                                          const [testName, selectedPack] = selectedTestPack.split(", ");
+
+                                          // Normalize pack types for comparison
+                                          const normalizePack = (pack) => {
+                                            if (pack.includes("Both")) return "Pack 1 + Pack 2";
+                                            return pack;
+                                          };
+
+                                          const selectedNormalizedPack = normalizePack(selectedPack);
+
+                                          // Check if the user is already registered
+                                          for (const test of registeredTests) {
+                                            const [registeredTestName, registeredPack] = test.test.split(", ");
+                                            const registeredNormalizedPack = normalizePack(registeredPack);
+
+                                            if (testName === registeredTestName) {
+                                              if (
+                                                selectedNormalizedPack === "Pack 1 + Pack 2" &&
+                                                (registeredNormalizedPack === "Pack 1" || registeredNormalizedPack === "Pack 2")
+                                              ) {
+                                                return true; // Already registered for one of the individual packs
+                                              }
+
+                                              if (
+                                                registeredNormalizedPack === "Pack 1 + Pack 2" &&
+                                                (selectedNormalizedPack === "Pack 1" || selectedNormalizedPack === "Pack 2")
+                                              ) {
+                                                return true; // Already registered for both packs
+                                              }
+
+                                              if (selectedNormalizedPack === registeredNormalizedPack) {
+                                                return true; // Exact match
+                                              }
+                                            }
+                                          }
+
+                                          return false;
+                                        };
+
+                                        if (isAlreadyRegistered(selectedTestPack, userDetails.registeredTests)) {
                                           toast.success("You're already registered for this test.");
-
                                         }
                                         else {
                                           // const url = `https://igts.dhanakiist.co.in/tests/${testDetails.id}/enroll?pack=${encodedPack}`;
