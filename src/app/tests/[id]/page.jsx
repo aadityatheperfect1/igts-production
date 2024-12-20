@@ -541,7 +541,8 @@ export default function TestDetails({ params }) {
                         <path d="M85.998,50C68.02,50,50.042,32.042,50,14.063V14c0,0.01-0.001,0.021-0.001,0.031c0-0.011-0.001-0.021-0.001-0.032v0.063  
   C49.956,32.042,31.979,50,14,50c18,0,36,18,36,36l0,0c0-18,18-36,36-36H85.998z" />
                       </svg>
-                      <span className="text-lg lg:text-xl text-gray-800 font-medium"><p> <strong>Total Questions:</strong> 75</p></span>
+                      <span className="text-lg lg:text-xl text-gray-800 font-medium"><p> <strong>Total Questions:</strong> 65 (10 aptitude)
+                      </p></span>
                     </li>
 
                     <li className="flex items-start gap-3">
@@ -556,7 +557,8 @@ export default function TestDetails({ params }) {
                         <path d="M85.998,50C68.02,50,50.042,32.042,50,14.063V14c0,0.01-0.001,0.021-0.001,0.031c0-0.011-0.001-0.021-0.001-0.032v0.063  
   C49.956,32.042,31.979,50,14,50c18,0,36,18,36,36l0,0c0-18,18-36,36-36H85.998z" />
                       </svg>
-                      <span className="text-lg lg:text-xl text-gray-800 font-medium"><p> <strong>Marking Scheme:</strong> +4 / -1</p></span>
+                      <span className="text-lg lg:text-xl text-gray-800 font-medium"><p> <strong>Types of Questions:</strong> MCQ - Single correct, Multiple Correct & Numerical Answer Type
+                      </p></span>
                     </li>
 
                   </ul>
@@ -565,7 +567,87 @@ export default function TestDetails({ params }) {
 
             </section>
 
+            <section className={`sm:max-w-xl md:max-w-4xl lg:max-w-screen-xl xl:max-w-screen-xl space-y-8 md:px-0 px-3 md:px-8 lg:px-5 mx-auto`}>
+              <div className="mb-2">
+                <h2 className="text-3xl lg:text-4xl text-[#2c14a8] font-bold mb-6 text-center lg:text-left">
+                  Questions type & Marking Scheme
+                </h2>
+                <div className="grid grid-cols-1 lg:grid-cols-1 gap-6">
+                  <ul className="space-y-4">
+                    <li className="flex items-start gap-3">
+                      {/* Spark Icon */}
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        height="28px"
+                        width="28px"
+                        viewBox="0 0 100 100"
+                        fill="#FFB258"
+                      >
+                        <path d="M85.998,50C68.02,50,50.042,32.042,50,14.063V14c0,0.01-0.001,0.021-0.001,0.031c0-0.011-0.001-0.021-0.001-0.032v0.063  
+  C49.956,32.042,31.979,50,14,50c18,0,36,18,36,36l0,0c0-18,18-36,36-36H85.998z" />
+                      </svg>
+                      <span className="text-lg lg:text-xl text-gray-800 font-medium"><p> <strong>Aptitude: </strong>
 
+                        5 Questions with +4 for each correct & -1 for each incorrect</p></span>
+                    </li>
+
+                    <li className="flex items-start gap-3">
+                      {/* Spark Icon */}
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        height="28px"
+                        width="28px"
+                        viewBox="0 0 100 100"
+                        fill="#FFB258"
+                      >
+                        <path d="M85.998,50C68.02,50,50.042,32.042,50,14.063V14c0,0.01-0.001,0.021-0.001,0.031c0-0.011-0.001-0.021-0.001-0.032v0.063  
+  C49.956,32.042,31.979,50,14,50c18,0,36,18,36,36l0,0c0-18,18-36,36-36H85.998z" />
+                      </svg>
+                      <span className="text-lg lg:text-xl text-gray-800 font-medium"><p> <strong>Aptitude: </strong>
+
+                        5 Questions with +4 for each correct & -2 for each incorrect</p></span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      {/* Spark Icon */}
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        height="28px"
+                        width="28px"
+                        viewBox="0 0 100 100"
+                        fill="#FFB258"
+                      >
+                        <path d="M85.998,50C68.02,50,50.042,32.042,50,14.063V14c0,0.01-0.001,0.021-0.001,0.031c0-0.011-0.001-0.021-0.001-0.032v0.063  
+  C49.956,32.042,31.979,50,14,50c18,0,36,18,36,36l0,0c0-18,18-36,36-36H85.998z" />
+                      </svg>
+                      <span className="text-lg lg:text-xl text-gray-800 font-medium"><p> <strong>Subject: </strong>
+
+                        25 Questions with +4 for each correct & -1 for each incorrect</p></span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      {/* Spark Icon */}
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        height="28px"
+                        width="28px"
+                        viewBox="0 0 100 100"
+                        fill="#FFB258"
+                      >
+                        <path d="M85.998,50C68.02,50,50.042,32.042,50,14.063V14c0,0.01-0.001,0.021-0.001,0.031c0-0.011-0.001-0.021-0.001-0.032v0.063  
+  C49.956,32.042,31.979,50,14,50c18,0,36,18,36,36l0,0c0-18,18-36,36-36H85.998z" />
+                      </svg>
+                      <span className="text-lg lg:text-xl text-gray-800 font-medium"><p> <strong>Subject: </strong>
+
+                        30 Questions with +4 for each correct & -2 for each incorrect</p></span>
+                    </li>
+
+
+
+                  </ul>
+
+                </div>
+              </div>
+
+            </section>
 
 
 
