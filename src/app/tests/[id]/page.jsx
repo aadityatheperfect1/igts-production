@@ -541,7 +541,7 @@ export default function TestDetails({ params }) {
                         <path d="M85.998,50C68.02,50,50.042,32.042,50,14.063V14c0,0.01-0.001,0.021-0.001,0.031c0-0.011-0.001-0.021-0.001-0.032v0.063  
   C49.956,32.042,31.979,50,14,50c18,0,36,18,36,36l0,0c0-18,18-36,36-36H85.998z" />
                       </svg>
-                      <span className="text-lg lg:text-xl text-gray-800 font-medium"><p> <strong>Total Questions:</strong> 65 (10 aptitude)
+                      <span className="text-lg lg:text-xl text-gray-800 font-medium"><p> <strong>Total Questions:</strong> 65 (10 Aptitude & 55 from Subject)
                       </p></span>
                     </li>
 
@@ -588,7 +588,7 @@ export default function TestDetails({ params }) {
                       </svg>
                       <span className="text-lg lg:text-xl text-gray-800 font-medium"><p> <strong>Aptitude: </strong>
 
-                        5 Questions with +4 for each correct & -1 for each incorrect</p></span>
+                        5 Questions with +1 for each correct & -1/3 for each incorrect</p></span>
                     </li>
 
                     <li className="flex items-start gap-3">
@@ -605,7 +605,7 @@ export default function TestDetails({ params }) {
                       </svg>
                       <span className="text-lg lg:text-xl text-gray-800 font-medium"><p> <strong>Aptitude: </strong>
 
-                        5 Questions with +4 for each correct & -2 for each incorrect</p></span>
+                        5 Questions with +2 for each correct & -2/3 for each incorrect</p></span>
                     </li>
                     <li className="flex items-start gap-3">
                       {/* Spark Icon */}
@@ -621,7 +621,7 @@ export default function TestDetails({ params }) {
                       </svg>
                       <span className="text-lg lg:text-xl text-gray-800 font-medium"><p> <strong>Subject: </strong>
 
-                        25 Questions with +4 for each correct & -1 for each incorrect</p></span>
+                        25 Questions with +1 for each correct & -1/3 for each incorrect</p></span>
                     </li>
                     <li className="flex items-start gap-3">
                       {/* Spark Icon */}
@@ -637,9 +637,25 @@ export default function TestDetails({ params }) {
                       </svg>
                       <span className="text-lg lg:text-xl text-gray-800 font-medium"><p> <strong>Subject: </strong>
 
-                        30 Questions with +4 for each correct & -2 for each incorrect</p></span>
+                        30 Questions with +2 for each correct & -2/3 for each incorrect</p></span>
                     </li>
 
+                    <li className="flex items-start gap-3">
+                      {/* Spark Icon */}
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        height="28px"
+                        width="28px"
+                        viewBox="0 0 100 100"
+                        fill="#FFB258"
+                      >
+                        <path d="M85.998,50C68.02,50,50.042,32.042,50,14.063V14c0,0.01-0.001,0.021-0.001,0.031c0-0.011-0.001-0.021-0.001-0.032v0.063  
+  C49.956,32.042,31.979,50,14,50c18,0,36,18,36,36l0,0c0-18,18-36,36-36H85.998z" />
+                      </svg>
+                      <span className="text-lg lg:text-xl text-gray-800 font-medium"><p> <strong>Note: </strong>
+
+                        No negative marks for MSQ & Numerical Type Questions</p></span>
+                    </li>
 
 
                   </ul>
