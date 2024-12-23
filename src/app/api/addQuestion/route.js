@@ -27,6 +27,8 @@ export async function POST(req) {
             uploadedBy,
         } = body;
 
+        console.log(uploadedBy);
+
         // Validation for required fields
         if (!questionId || !domainId || !packId || !testId || !questionText) {
             return NextResponse.json({ error: "Please fill in all required fields." }, { status: 400 });

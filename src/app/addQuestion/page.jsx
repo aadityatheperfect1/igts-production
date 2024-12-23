@@ -23,7 +23,7 @@ import { IKImage, IKUpload, IKContext } from "imagekitio-react";
 
 
 
-export default function Dashboard() {
+export default function AddQuestionPage() {
 
     const [userDetails, setUserDetails] = useState(null);
     const router = useRouter();
@@ -34,6 +34,7 @@ export default function Dashboard() {
     const [isFirstLoad, setIsFirstLoad] = useState(true);
     const [uid, setUid] = useState('');
     const [diagramText, setDiagramText] = useState(false);
+    const [userEmail, setUserEmail] = useState('');
 
 
     const getUser = async (id) => {
@@ -50,6 +51,7 @@ export default function Dashboard() {
                 setUserDetails(resjson.user);
                 setUserRole(resjson.user.role);
                 setUid(resjson.user.userId);
+                setUserEmail(resjson.user.email);
             } else {
                 toast.error("Failed to get user details.")
             }
@@ -101,8 +103,9 @@ export default function Dashboard() {
         options: [{ optionId: "a", optionText: "", optionImage: "" }], // default one option
         correctAnswers: [],
         marks: 1,
-        negativeMarks: 0.00,
+        negativeMarks: 0.0,
         difficulty: "medium", // default value
+        uploadedBy: "", // Initialize as an empty string
     });
 
     const [error, setError] = useState("");
@@ -156,12 +159,26 @@ export default function Dashboard() {
         }
     };
 
+    // Dynamically update uploadedBy when userEmail changes
+    useEffect(() => {
+        if (userEmail) {
+            setFormData((prevFormData) => ({
+                ...prevFormData,
+                uploadedBy: userEmail,
+            }));
+        }
+    }, [userEmail]);
+
+
     // Submit form
     const handleSubmit = async (e) => {
 
         e.preventDefault();
         setError("");
         setSuccess("");
+
+        console.log(userEmail);
+        setFormData({ ...formData, uploadedBy: userEmail });
 
         // Validation for required fields
         if (!formData.questionId || !formData.domainId || !formData.packId || !formData.testId || !formData.questionText) {
@@ -197,7 +214,7 @@ export default function Dashboard() {
                 marks: 1,
                 negativeMarks: 0.00,
                 difficulty: "medium",
-                uploadedBy: userDetails.email,
+                uploadedBy: "",
             });
         } catch (err) {
             setError("Failed to add question. Please try again.");
