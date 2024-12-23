@@ -177,7 +177,6 @@ export default function AddQuestionPage() {
         setError("");
         setSuccess("");
 
-        console.log(userEmail);
         setFormData({ ...formData, uploadedBy: userEmail });
 
         // Validation for required fields
@@ -214,7 +213,7 @@ export default function AddQuestionPage() {
                 marks: 1,
                 negativeMarks: 0.00,
                 difficulty: "medium",
-                uploadedBy: userEmail,
+                uploadedBy: userDetails.email,
             });
         } catch (err) {
             setError("Failed to add question. Please try again.");
