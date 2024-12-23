@@ -214,7 +214,7 @@ export default function AddQuestionPage() {
                 marks: 1,
                 negativeMarks: 0.00,
                 difficulty: "medium",
-                uploadedBy: "",
+                uploadedBy: userEmail,
             });
         } catch (err) {
             setError("Failed to add question. Please try again.");
