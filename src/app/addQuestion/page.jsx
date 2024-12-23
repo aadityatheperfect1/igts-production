@@ -197,6 +197,7 @@ export default function Dashboard() {
                 marks: 1,
                 negativeMarks: 0.00,
                 difficulty: "medium",
+                uploadedBy: userDetails.email,
             });
         } catch (err) {
             setError("Failed to add question. Please try again.");

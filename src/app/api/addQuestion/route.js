@@ -24,6 +24,7 @@ export async function POST(req) {
             marks,
             negativeMarks,
             difficulty,
+            uploadedBy,
         } = body;
 
         // Validation for required fields
@@ -51,6 +52,7 @@ export async function POST(req) {
                 marks,
                 negativeMarks,
                 difficulty,
+                uploadedBy,
             });
 
             // Save the question to the database
