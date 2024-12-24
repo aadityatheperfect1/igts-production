@@ -161,7 +161,7 @@ export default function PreviewQuestion() {
                     </div>
                     <div className={`w-full py-4`}>
 
-                        <div className="max-w-3xl mx-auto bg-white shadow-md rounded-md p-6">
+                        <div className="mx-auto bg-white shadow-md rounded-md p-6">
                             <h1 className="text-2xl font-bold mb-4">Fetch Question by ID</h1>
 
                             <form onSubmit={handleFetchQuestion} className="mb-6">
