@@ -19,7 +19,8 @@ import store from '@/libs/store';
 import { onAuthStateChanged } from "firebase/auth";
 import { motion } from "framer-motion";
 import { IKImage, IKUpload, IKContext } from "imagekitio-react";
-
+import katex from "katex";
+import "katex/dist/katex.min.css";
 
 
 
@@ -89,6 +90,16 @@ export default function AddQuestionPage() {
     }
 
     LoadAuth();
+
+    const renderLatex = (text) => {
+        try {
+            const html = katex.renderToString(text, { throwOnError: false });
+            return { __html: html };
+        } catch (error) {
+            console.error("Error rendering LaTeX:", error);
+            return { __html: text };
+        }
+    };
 
     // State to store form inputs
     const [formData, setFormData] = useState({
@@ -347,6 +358,10 @@ export default function AddQuestionPage() {
                                             className="border p-2 w-full"
                                             required
                                         />
+                                        <div
+                                            className="text-gray-800"
+                                            dangerouslySetInnerHTML={renderLatex(formData.questionText)}
+                                        ></div>
                                     </div>
 
                                     <div className="mt-4 space-y-4">
@@ -483,6 +498,10 @@ export default function AddQuestionPage() {
                                                     className="border p-2 col-span-3"
                                                     required
                                                 />
+                                                <div
+                                                    className="text-gray-800 col-span-4"
+                                                    dangerouslySetInnerHTML={renderLatex(option.optionText)}
+                                                ></div>
                                                 <IKContext
                                                     publicKey={process.env.NEXT_PUBLIC_IMAGEKIT_PUBLIC_KEY}
                                                     urlEndpoint={process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}
