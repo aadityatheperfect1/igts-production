@@ -109,7 +109,7 @@ export default function FAQPage() {
                     <div>
                       <p className={`text-2xl text-gray-700 font-bold ${style.fonttAverta}`}>{category} FAQs</p>
                     </div>
-                    
+
 
                     {faqs.map((faq, index) => {
                       const faqId = `${category}-${index}`; // Unique identifier for each FAQ
@@ -141,7 +141,7 @@ export default function FAQPage() {
                             </span>
                           </button>
 
-                          
+
                           <motion.div
                             initial={{ height: 0, opacity: 0 }}
                             animate={isOpen ? { height: "auto", opacity: 1 } : { height: 0, opacity: 0 }}

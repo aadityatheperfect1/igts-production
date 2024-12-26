@@ -62,6 +62,29 @@ export default function Home() {
     { title: "Stay Updated", description: "Keep visiting the website for further announcements." },
   ];
 
+  const howToAttemptTest = [
+    {
+      title: "Verify Your Registration",
+      description: "Check your dashboard to confirm your registration details."
+    },
+    {
+      title: "Login Before the Test",
+      description: "Ensure you are logged into the portal 10-15 minutes before the test starts."
+    },
+    {
+      title: "Access the Test",
+      description: "Navigate to your dashboard, go to 'Your Tests'."
+    },
+    {
+      title: "Attempt the test",
+      description: "Click on the 'Test Details' of the test that you wish to attempt."
+    },
+    {
+      title: "Follow On-Screen Instructions",
+      description: "Proceed with the steps displayed on the screen to begin your test."
+    },
+  ];
+
 
   const cardVariants = {
     hidden: { opacity: 0, y: 50 },
@@ -321,6 +344,76 @@ export default function Home() {
                 Register Now!
               </Link>
             </motion.div>
+          </div>
+
+          {/* How to attempt test */}
+          <div className="bg-gradient-to-b from-[#ffffff] via-[#ffffff] to-[#d0c7ff] pt-10 pb-20">
+            <div className="max-w-6xl mx-auto text-center flex flex-col items-center gap-12">
+              <div className={`mb-2`}>
+                <motion.h2
+                  className="text-4xl text-[#674cee] font-bold mb-6"
+                  initial={{ opacity: 0, y: -20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8 }}
+                >
+                  How to attempt the test?
+                </motion.h2>
+
+                <h2 className={``}>
+                  <strong>Note:</strong> Please use a tablet or laptop to take the test. Mobile phones are not permitted.
+                </h2>
+              </div>
+
+              {/* First Row for Steps 1, 2, and 3 */}
+              <div className="relative grid grid-cols-1 md:grid-cols-3 gap-x-10 gap-y-16 px-6 md:px-20">
+                {howToAttemptTest.slice(0, 3).map((step, index) => (
+                  <motion.div
+                    key={index}
+                    className="relative bg-white pt-12 pb-8 px-8 rounded-full shadow-lg transition-transform transform hover:scale-105 z-10"
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{
+                      duration: 0.8,
+                      ease: [0.42, 0, 0.58, 1],
+                    }}
+                  >
+                    {/* Step Number Circle */}
+                    <div className="absolute top-[-30px] left-1/2 transform -translate-x-1/2 w-16 h-16 bg-[#674cee] text-white rounded-full flex items-center justify-center">
+                      <span className="text-lg font-bold">{index + 1}</span>
+                    </div>
+
+                    <h3 className="text-xl font-semibold text-[#674cee] mb-4">{step.title}</h3>
+                    <p className="text-gray-700">{step.description}</p>
+                  </motion.div>
+                ))}
+              </div>
+
+              {/* Second Row for Steps 4 and 5 */}
+              <div className="w-full grid grid-cols-1 md:grid-cols-2 justify-center gap-x-10 gap-y-16 px-6 md:px-48 mt-6">
+                {howToAttemptTest.slice(3).map((step, index) => (
+                  <motion.div
+                    key={index + 3}
+                    className="relative bg-white pt-12 pb-8 px-8 rounded-full shadow-lg transition-transform transform hover:scale-105 z-10"
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{
+                      duration: 0.8,
+                      ease: [0.42, 0, 0.58, 1],
+                    }}
+                  >
+                    {/* Step Number Circle */}
+                    <div className="absolute top-[-30px] left-1/2 transform -translate-x-1/2 w-16 h-16 bg-[#674cee] text-white rounded-full flex items-center justify-center">
+                      <span className="text-lg font-bold">{index + 4}</span>
+                    </div>
+
+                    <h3 className="text-xl font-semibold text-[#674cee] mb-4">{step.title}</h3>
+                    <p className="text-gray-700">{step.description}</p>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
           </div>
         </motion.div>
       </div>
