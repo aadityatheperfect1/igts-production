@@ -323,6 +323,7 @@ export default function TestDetails({ params }) {
                       </div>
                       <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
                         {Object.entries(testDetails.testSchedule).map(([pack, schedule], index) => (
+                          index <= 1 &&
                           <div
                             key={`${testDetails.id}-${pack}`}
                             className="flex flex-col bg-[#f1f7fe] hover:shadow-md transition ease-in-out duration-200 border border-black rounded-xl px-6 py-6 lg:py-6 lg:px-10"

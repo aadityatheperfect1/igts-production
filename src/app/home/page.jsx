@@ -137,7 +137,7 @@ export default function Home() {
 
               {/* Hero Text */}
               <motion.div
-                className="h-full flex flex-col items-center justify-center mt-20 mb-20 md:mt-16 md:mb-16"
+                className="h-full flex flex-col items-center justify-center mt-8 mb-8 md:my-8 lg:mt-16 lg:mb-16"
                 variants={textVariants}
               >
                 <div className="text-center max-w-4xl mx-auto flex flex-col items-center gap-10">
@@ -146,8 +146,8 @@ export default function Home() {
                     className="text-3xl hidden md:inline-block heroText md:text-6xl text-black"
                     variants={textVariants}
                   >
-                    CRACK <span className="font-extrabold text-[#674cee] tracking-wider gateTextFont">GATE 2025</span>{" "}
-                    WITH CONFIDENCE
+                    <span className="font-extrabold text-7xl text-[#674cee] tracking-widest gateTextFont">IGTS</span><br />
+                    IIST GATE TEST SERIES
                   </motion.p>
 
                   {/* for mobile screens */}
@@ -155,16 +155,16 @@ export default function Home() {
                     className="text-2xl font-bold inline-block md:hidden heroText md:text-6xl text-black"
                     variants={textVariants}
                   >
-                    CRACK <br /> <span className="font-extrabold text-[#674cee] text-6xl tracking-wider gateTextFont">GATE 2025</span>{" "}
-                    <br /> WITH CONFIDENCE
+                    <br /> <span className="font-extrabold text-[#674cee] text-6xl tracking-wider gateTextFont">IGTS</span>{" "}
+                    <br /> IIST GATE TEST SERIES
                   </motion.p>
 
 
                   <motion.h2
-                    className="text-2xl mt-10 font-bold md:text-3xl font-extrabold text-[#674cee] mt-4"
+                    className="text-lg sm:text-xl  md:text-2xl mt-10 font-bold md:text-3xl font-extrabold text-[#674cee] mt-4"
                     variants={textVariants}
                   >
-                    Mock Tests Designed Just for You!
+                    Indian Institute of Space Sciece and Technology <br /> An Institution under Department of Space, ISRO
                   </motion.h2>
                 </div>
               </motion.div>
