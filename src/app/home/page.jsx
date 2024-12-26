@@ -73,11 +73,11 @@ export default function Home() {
     },
     {
       title: "Access the Test",
-      description: "Navigate to your dashboard, go to 'Your Tests'."
+      description: "Navigate to your dashboard, go to &#39;Your Tests&#39;."
     },
     {
       title: "Attempt the test",
-      description: "Click on the 'Test Details' of the test that you wish to attempt."
+      description: "Click on the &#39;Test Details&#39; of the test that you wish to attempt."
     },
     {
       title: "Follow On-Screen Instructions",
@@ -270,7 +270,7 @@ export default function Home() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8 }}
               >
-                Let's see, what Dhanak 2025 is all about?
+                Let&#39;s see, what Dhanak 2025 is all about?
               </motion.h2>
 
               <motion.p
@@ -279,7 +279,7 @@ export default function Home() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
               >
-                Dhanak, the Annual Cultural Festival of the Indian Institute of Space Science and Technology, Thiruvananthapuram, continues to redefine the cultural landscape. As one of the largest intercollegiate festivals in Southern India, it celebrates a blend of talent, creativity, and diversity. Named after the Hindi word for 'rainbow,' DHANAK brings together a spectrum of cultures, passions, and ideas.
+                Dhanak, the Annual Cultural Festival of the Indian Institute of Space Science and Technology, Thiruvananthapuram, continues to redefine the cultural landscape. As one of the largest intercollegiate festivals in Southern India, it celebrates a blend of talent, creativity, and diversity. Named after the Hindi word for &#39;rainbow,&#39; DHANAK brings together a spectrum of cultures, passions, and ideas.
               </motion.p>
 
               <motion.p

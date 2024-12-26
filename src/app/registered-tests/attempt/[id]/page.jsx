@@ -244,7 +244,7 @@ export default function AttemptTestLayout({ params }) {
                                     </div>
                                     <div className="border border-gray-200 text-sm md:text-lg mt-2 text-purple-100 px-4 py-2 rounded-lg">
                                         <p>
-                                            You may begin the test at any time between 5:30 - 8:30 PM. The timer will start only when you press "Attempt Test"
+                                            You may begin the test at any time between 5:30 - 8:30 PM. The timer will start only when you press &#34;Attempt Test&#34;
                                         </p>
                                     </div>
                                 </div>
