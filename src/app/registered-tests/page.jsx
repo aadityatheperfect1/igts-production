@@ -132,13 +132,14 @@ export default function RegisteredTests() {
                             <p className="text-red-500">No schedule found for this test.</p>
                         </div>
                     </div>
+
                 );
             }
 
             return (
                 <div
                     key={registeredTest._id}
-                    className="card-container bg-white"
+                    className="card-container bg-white border-b border-gray-300"
                 >
                     <div className="flex flex-col gap-3 items-start bg-white pt-6 pb-6 md:px-4 rounded-lg">
                         <div className="flex gap-3 flex-wrap">
