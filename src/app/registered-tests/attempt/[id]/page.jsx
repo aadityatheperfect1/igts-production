@@ -115,8 +115,8 @@ export default function AttemptTestLayout({ params }) {
             if (testDate) {
                 // Parse and format the test date
                 const formattedDate = formatDateString(testDate);
-                const testDateTime = new Date(`${formattedDate} 00:02:00`);
-                const testEndDateTime = new Date(`${formattedDate} 00:04:00`);
+                const testDateTime = new Date(`${formattedDate} 17:30:00`);
+                const testEndDateTime = new Date(`${formattedDate} 20:30:00`);
                 const now = new Date();
 
                 if (now >= testDateTime && now <= testEndDateTime) {
@@ -314,13 +314,10 @@ export default function AttemptTestLayout({ params }) {
                                 ) : isTestAttemptEnded ? (
                                     <span className="text-red-600 font-semibold text-lg">This test has ended</span>
                                 ) : (
-                                    <span className="text-gray-700 text-lg flex flex-wrap">
+                                    <span className="text-gray-700 text-lg flex flex-wrap gap-2">
                                         <span>The test will begin in</span> <span className="font-semibold text-blue-600">{timeRemaining}</span>
                                     </span>
                                 )}
-
-
-
                             </div>
 
                             {/* Attempt Test Now Button */}
