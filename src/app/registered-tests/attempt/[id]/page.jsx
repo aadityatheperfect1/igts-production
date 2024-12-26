@@ -201,21 +201,21 @@ export default function AttemptTestLayout({ params }) {
                                         GATE Mock - {testDetails.title}
                                     </h2>
                                     <div className="flex flex-wrap gap-4 items-center text-neutral-50">
-                                        <p className="text-sm bg-purple-100 text-black md:text-lg px-4 rounded-full font-medium border border-neutral-100">
+                                        <p className="text-md bg-purple-100 text-black md:text-lg px-4 rounded-full font-medium border border-neutral-100">
                                             <span className="font-normal">{testPack}</span>
                                         </p>
 
-                                        <p className="text-sm md:text-lg flex gap-2 items-center">
+                                        <p className="text-md md:text-lg flex gap-2 items-center">
                                             <span className="text-neutral-300 font-normal text-lg md:text-2xl leading-none flex items-center">•</span>
                                             {normalizeTestName(testNumber)}
                                         </p>
 
-                                        <p className="text-sm md:text-lg font-medium flex gap-2 items-center">
+                                        <p className="text-md md:text-lg font-medium flex gap-2 items-center">
                                             <span className="text-neutral-300 font-normal text-lg md:text-2xl leading-none flex items-center">•</span>
                                             {testDetails.date}
                                         </p>
 
-                                        <p className="font-normal text-sm md:text-lg flex items-center gap-2">
+                                        <p className="font-normal text-md md:text-lg flex items-center gap-2">
                                             <span className="text-neutral-300 font-normal text-lg md:text-2xl leading-none flex items-center">•</span>
                                             <svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px" fill="#e8eaed">
                                                 <path d="m612-292 56-56-148-148v-184h-80v216l172 172ZM480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-400Zm0 320q133 0 226.5-93.5T800-480q0-133-93.5-226.5T480-800q-133 0-226.5 93.5T160-480q0 133 93.5 226.5T480-160Z" />
@@ -223,7 +223,7 @@ export default function AttemptTestLayout({ params }) {
                                             180 MIN
                                         </p>
 
-                                        <p className="text-sm md:text-lg font-medium flex gap-2 items-center">
+                                        <p className="text-md md:text-lg font-medium flex gap-2 items-center">
                                             <span className="text-neutral-300 font-normal text-lg md:text-2xl leading-none flex items-center">•</span>
                                             5:30 - 8:30 PM
                                         </p>
@@ -248,7 +248,7 @@ export default function AttemptTestLayout({ params }) {
                                         </p>
                                     </div>
                                 </div>
-                                <div className="w-full md:w-1/3 flex justify-center md:justify-end">
+                                <div className="w-full md:w-1/3 hidden md:flex justify-center md:justify-end">
                                     <img
                                         className="w-2/3 md:w-3/4 object-contain"
                                         src="/images/test-details-bg.svg"
@@ -314,8 +314,8 @@ export default function AttemptTestLayout({ params }) {
                                 ) : isTestAttemptEnded ? (
                                     <span className="text-red-600 font-semibold text-lg">This test has ended</span>
                                 ) : (
-                                    <span className="text-gray-700 text-lg">
-                                        The test will begin in <span className="font-semibold text-blue-600">{timeRemaining}</span>
+                                    <span className="text-gray-700 text-lg flex flex-wrap">
+                                        <span>The test will begin in</span> <span className="font-semibold text-blue-600">{timeRemaining}</span>
                                     </span>
                                 )}
 
@@ -329,7 +329,7 @@ export default function AttemptTestLayout({ params }) {
                                     onClick={() =>
                                         toast("The test has not started yet.", { icon: "⏳" })
                                     }
-                                    className="bg-gray-600 hover:bg-gray-700 text-white text-lg font-medium px-6 py-3 rounded-md cursor-not-allowed"
+                                    className="bg-gray-600 hover:bg-gray-700 text-white text-lg font-medium px-6 py-2 md:px-6 md:py-3 rounded-md cursor-not-allowed"
                                 >
                                     Attempt Test
                                 </button>
@@ -340,7 +340,7 @@ export default function AttemptTestLayout({ params }) {
                                     onClick={() =>
                                         toast("This test has ended. Thank you for participating!", { icon: "🚫" })
                                     }
-                                    className="bg-red-600 hover:bg-red-700 text-white text-lg font-medium px-6 py-3 rounded-md cursor-not-allowed"
+                                    className="bg-red-600 hover:bg-red-700 text-white text-lg font-medium px-6 py-2 md:px-6 md:py-3 rounded-md cursor-not-allowed"
                                 >
                                     Test Ended
                                 </button>
@@ -354,7 +354,7 @@ export default function AttemptTestLayout({ params }) {
                                             `/registered-tests/attempt-live/${RegisteredTestId}?domain=${encodeURIComponent(domain)}&pack=${encodeURIComponent(testPack)}&test=${encodeURIComponent(testNumber)}`
                                         );
                                     }}
-                                    className="bg-blue-600 hover:bg-blue-700 text-white text-lg font-medium px-6 py-3 rounded-md"
+                                    className="bg-blue-600 hover:bg-blue-700 text-white text-lg font-medium px-6 py-2 md:px-6 md:py-3 rounded-md"
                                 >
                                     Attempt Test
                                 </button>

@@ -73,15 +73,19 @@ export default function Home() {
     },
     {
       title: "Access the Test",
-      description: "Navigate to your dashboard, go to &#39;Your Tests&#39;."
+      description: "Navigate to your dashboard, go to Your Tests."
     },
     {
       title: "Attempt the test",
-      description: "Click on the &#39;Test Details&#39; of the test that you wish to attempt."
+      description: `Click on the Test Details of the test that you wish to attempt.`
     },
     {
-      title: "Follow On-Screen Instructions",
+      title: "Follow Instructions",
       description: "Proceed with the steps displayed on the screen to begin your test."
+    },
+    {
+      title: "Stay Updated",
+      description: "Keep visiting the website for further announcements."
     },
   ];
 
@@ -366,7 +370,7 @@ export default function Home() {
 
               {/* First Row for Steps 1, 2, and 3 */}
               <div className="relative grid grid-cols-1 md:grid-cols-3 gap-x-10 gap-y-16 px-6 md:px-20">
-                {howToAttemptTest.slice(0, 3).map((step, index) => (
+                {howToAttemptTest.map((step, index) => (
                   <motion.div
                     key={index}
                     className="relative bg-white pt-12 pb-8 px-8 rounded-full shadow-lg transition-transform transform hover:scale-105 z-10"
@@ -389,30 +393,7 @@ export default function Home() {
                 ))}
               </div>
 
-              {/* Second Row for Steps 4 and 5 */}
-              <div className="w-full grid grid-cols-1 md:grid-cols-2 justify-center gap-x-10 gap-y-16 px-6 md:px-48 mt-6">
-                {howToAttemptTest.slice(3).map((step, index) => (
-                  <motion.div
-                    key={index + 3}
-                    className="relative bg-white pt-12 pb-8 px-8 rounded-full shadow-lg transition-transform transform hover:scale-105 z-10"
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    viewport={{ once: true }}
-                    transition={{
-                      duration: 0.8,
-                      ease: [0.42, 0, 0.58, 1],
-                    }}
-                  >
-                    {/* Step Number Circle */}
-                    <div className="absolute top-[-30px] left-1/2 transform -translate-x-1/2 w-16 h-16 bg-[#674cee] text-white rounded-full flex items-center justify-center">
-                      <span className="text-lg font-bold">{index + 4}</span>
-                    </div>
 
-                    <h3 className="text-xl font-semibold text-[#674cee] mb-4">{step.title}</h3>
-                    <p className="text-gray-700">{step.description}</p>
-                  </motion.div>
-                ))}
-              </div>
             </div>
           </div>
         </motion.div>
