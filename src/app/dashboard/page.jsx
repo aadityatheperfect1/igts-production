@@ -381,8 +381,7 @@ export default function Dashboard() {
                                     <div className="flex flex-col p-6 gap-2 w-full rounded-2xl bg-white border border-gray-400 shadow-lg items-center max-w-sm mx-auto">
                                         <div className={`text-center`}>
                                             <p className={`${style.fonttAverta} text-sm font-bold`}>
-                                                Nothing to show here for now.
-
+                                                Results will be displayed within 48 hours after you attempt the test.
                                             </p>
 
                                         </div>
