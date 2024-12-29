@@ -539,7 +539,39 @@ export default function TestDetails({ params }) {
                   Test Details
                 </h2>
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                  <ul className="space-y-4">
+                  <ul className="space-y-4 w-full">
+                    <li className="flex items-start gap-3">
+                      {/* Spark Icon */}
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        height="28px"
+                        width="28px"
+                        viewBox="0 0 100 100"
+                        fill="#FFB258"
+                      >
+                        <path d="M85.998,50C68.02,50,50.042,32.042,50,14.063V14c0,0.01-0.001,0.021-0.001,0.031c0-0.011-0.001-0.021-0.001-0.032v0.063  
+  C49.956,32.042,31.979,50,14,50c18,0,36,18,36,36l0,0c0-18,18-36,36-36H85.998z" />
+                      </svg>
+                      <span className="text-lg lg:text-xl text-gray-800 font-medium"><p> <strong>Total Questions:</strong> 65 (10 Aptitude & 55 from Subject)
+                      </p></span>
+                    </li>
+                    <li className="flex items-start gap-3 w-full">
+                      {/* Spark Icon */}
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        height="28px"
+                        width="28px"
+                        viewBox="0 0 100 100"
+                        fill="#FFB258"
+                      >
+                        <path d="M85.998,50C68.02,50,50.042,32.042,50,14.063V14c0,0.01-0.001,0.021-0.001,0.031c0-0.011-0.001-0.021-0.001-0.032v0.063  
+  C49.956,32.042,31.979,50,14,50c18,0,36,18,36,36l0,0c0-18,18-36,36-36H85.998z" />
+                      </svg>
+                      <span className="text-lg lg:text-xl text-gray-800 font-medium"><p> <strong>Types of Questions:</strong> MCQ - Single correct, Multiple Correct & Numerical Answer Type
+                      </p></span>
+                    </li>
+                  </ul>
+                  <ul className="space-y-4 w-full">
                     <li className="flex items-start gap-3">
                       {/* Spark Icon */}
                       <svg
@@ -556,7 +588,6 @@ export default function TestDetails({ params }) {
 
                         5:30 PM - 8:30 PM</p></span>
                     </li>
-
                     <li className="flex items-start gap-3">
                       {/* Spark Icon */}
                       <svg
@@ -571,44 +602,6 @@ export default function TestDetails({ params }) {
                       </svg>
                       <span className="text-lg lg:text-xl text-gray-800 font-medium"><p> <strong>Test Duration: </strong>3 Hrs</p></span>
                     </li>
-
-
-                  </ul>
-                  <ul className="space-y-4">
-
-
-                    <li className="flex items-start gap-3">
-                      {/* Spark Icon */}
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        height="28px"
-                        width="28px"
-                        viewBox="0 0 100 100"
-                        fill="#FFB258"
-                      >
-                        <path d="M85.998,50C68.02,50,50.042,32.042,50,14.063V14c0,0.01-0.001,0.021-0.001,0.031c0-0.011-0.001-0.021-0.001-0.032v0.063  
-  C49.956,32.042,31.979,50,14,50c18,0,36,18,36,36l0,0c0-18,18-36,36-36H85.998z" />
-                      </svg>
-                      <span className="text-lg lg:text-xl text-gray-800 font-medium"><p> <strong>Total Questions:</strong> 65 (10 Aptitude & 55 from Subject)
-                      </p></span>
-                    </li>
-
-                    <li className="flex items-start gap-3">
-                      {/* Spark Icon */}
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        height="28px"
-                        width="28px"
-                        viewBox="0 0 100 100"
-                        fill="#FFB258"
-                      >
-                        <path d="M85.998,50C68.02,50,50.042,32.042,50,14.063V14c0,0.01-0.001,0.021-0.001,0.031c0-0.011-0.001-0.021-0.001-0.032v0.063  
-  C49.956,32.042,31.979,50,14,50c18,0,36,18,36,36l0,0c0-18,18-36,36-36H85.998z" />
-                      </svg>
-                      <span className="text-lg lg:text-xl text-gray-800 font-medium"><p> <strong>Types of Questions:</strong> MCQ - Single correct, Multiple Correct & Numerical Answer Type
-                      </p></span>
-                    </li>
-
                   </ul>
                 </div>
               </div>
@@ -636,7 +629,7 @@ export default function TestDetails({ params }) {
                       </svg>
                       <span className="text-lg lg:text-xl text-gray-800 font-medium"><p> <strong>Aptitude: </strong>
 
-                        5 Questions with +1 for each correct & -1/3 for each incorrect</p></span>
+                        5 Questions with <strong className={`text-green-600`}>+1</strong> for each correct & <strong className={`text-red-600`}>-1/3</strong> for each incorrect</p></span>
                     </li>
 
                     <li className="flex items-start gap-3">
@@ -653,7 +646,7 @@ export default function TestDetails({ params }) {
                       </svg>
                       <span className="text-lg lg:text-xl text-gray-800 font-medium"><p> <strong>Aptitude: </strong>
 
-                        5 Questions with +2 for each correct & -2/3 for each incorrect</p></span>
+                        5 Questions with <strong className={`text-green-600`}>+2</strong> for each correct & <strong className={`text-red-600`}>-2/3</strong> for each incorrect</p></span>
                     </li>
                     <li className="flex items-start gap-3">
                       {/* Spark Icon */}
@@ -669,7 +662,7 @@ export default function TestDetails({ params }) {
                       </svg>
                       <span className="text-lg lg:text-xl text-gray-800 font-medium"><p> <strong>Subject: </strong>
 
-                        25 Questions with +1 for each correct & -1/3 for each incorrect</p></span>
+                        25 Questions with <strong className={`text-green-600`}>+1</strong> for each correct & <strong className={`text-red-600`}>-1/3</strong> for each incorrect</p></span>
                     </li>
                     <li className="flex items-start gap-3">
                       {/* Spark Icon */}
@@ -685,7 +678,7 @@ export default function TestDetails({ params }) {
                       </svg>
                       <span className="text-lg lg:text-xl text-gray-800 font-medium"><p> <strong>Subject: </strong>
 
-                        30 Questions with +2 for each correct & -2/3 for each incorrect</p></span>
+                        30 Questions with <strong className={`text-green-600`}>+2</strong> for each correct & <strong className={`text-red-600`}>-2/3</strong> for each incorrect</p></span>
                     </li>
 
                     <li className="flex items-start gap-3">

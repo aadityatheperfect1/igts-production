@@ -540,83 +540,84 @@ export default function Dashboard() {
                             </div>
                             {/* Floating Navigation Panel for mobile screens */}
                             <div className="flex bg-white border-[#0072bb] border-2 text-white rounded-xl shadow-2xl flex-row items-center justify-evenly p-2 lg:hidden">
-                                <nav className="flex flex-wrap gap-2 justify-center items-center">
-                                    <button>
+                                <nav className="grid grid-cols-2 gap-2 justify-center items-center w-full">
+                                    <button
+                                        className={`w-full`}
+                                    >
                                         <Link
                                             href='/registered-tests'
-                                            className={`hover:bg-[#0072bb] bg-[#1e91d6] focus:ring-4 focus:ring-blue-300 transition duration-1000 w-full flex gap-2 ${style.fonttAverta} text-white font-semibold px-3 py-2 rounded-md`}>
-                                            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#ffffff"><path d="M224-878h78l135 360h-75l-30-86H194l-30 86H89l135-360Zm5 402q42 0 71 29t29 71q0 20-7.5 38.5T300-305l-15 14 28 28 57-56 57 57-56 56 56 57-57 56-56-56-42 42q-15 15-34 22.5T198-77q-42 0-70-29.5T100-178q0-20 8-38.5t22-32.5l42-42-14-14q-14-14-22-32t-8-38q0-42 29.5-71.5T229-476Zm0 242-43 42q-3 3-4 6.5t-1 7.5q0 8 5.5 14t13.5 6q4 0 7.5-1.5t6.5-4.5l43-42-28-28Zm-1-162q-8 0-13.5 6t-5.5 14q0 4 1 7.5t4 6.5l15 14 13-13q3-3 4.5-6.5t1.5-7.5q0-8-6-14.5t-14-6.5Zm33-404-46 134h96l-46-134h-4Zm438-105q8 13 13.5 27t9.5 28l-43 13h201v80h-67q-11 33-28.5 62.5T744-640q27 16 56 26.5t60 18.5l-19 77q-43-11-83.5-27T680-586q-37 24-77.5 40.5T519-518l-18-77q30-8 59-18.5t56-26.5q-23-25-40.5-54.5T548-757h-68v-80h176q-3-13-8-25.5T638-887l61-18Zm104 444 57 56L549-94l-57-56 311-311Zm-223 23q25 0 42.5 17.5T640-378q0 25-17.5 42.5T580-318q-25 0-42.5-17.5T520-378q0-25 17.5-42.5T580-438Zm53-319q8 19 20 36t27 32q15-15 27-32t21-36h-95Zm147 519q25 0 42.5 17.5T840-178q0 25-17.5 42.5T780-118q-25 0-42.5-17.5T720-178q0-25 17.5-42.5T780-238Z" /></svg>
+                                            className={`hover:bg-[#0072bb] bg-[#1e91d6] text-sm focus:ring-4 focus:ring-blue-300 transition duration-1000 w-full flex gap-2 ${style.fonttAverta} text-white font-semibold px-3 py-2 rounded-md`}>
+                                            <svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px" fill="#ffffff"><path d="M224-878h78l135 360h-75l-30-86H194l-30 86H89l135-360Zm5 402q42 0 71 29t29 71q0 20-7.5 38.5T300-305l-15 14 28 28 57-56 57 57-56 56 56 57-57 56-56-56-42 42q-15 15-34 22.5T198-77q-42 0-70-29.5T100-178q0-20 8-38.5t22-32.5l42-42-14-14q-14-14-22-32t-8-38q0-42 29.5-71.5T229-476Zm0 242-43 42q-3 3-4 6.5t-1 7.5q0 8 5.5 14t13.5 6q4 0 7.5-1.5t6.5-4.5l43-42-28-28Zm-1-162q-8 0-13.5 6t-5.5 14q0 4 1 7.5t4 6.5l15 14 13-13q3-3 4.5-6.5t1.5-7.5q0-8-6-14.5t-14-6.5Zm33-404-46 134h96l-46-134h-4Zm438-105q8 13 13.5 27t9.5 28l-43 13h201v80h-67q-11 33-28.5 62.5T744-640q27 16 56 26.5t60 18.5l-19 77q-43-11-83.5-27T680-586q-37 24-77.5 40.5T519-518l-18-77q30-8 59-18.5t56-26.5q-23-25-40.5-54.5T548-757h-68v-80h176q-3-13-8-25.5T638-887l61-18Zm104 444 57 56L549-94l-57-56 311-311Zm-223 23q25 0 42.5 17.5T640-378q0 25-17.5 42.5T580-318q-25 0-42.5-17.5T520-378q0-25 17.5-42.5T580-438Zm53-319q8 19 20 36t27 32q15-15 27-32t21-36h-95Zm147 519q25 0 42.5 17.5T840-178q0 25-17.5 42.5T780-118q-25 0-42.5-17.5T720-178q0-25 17.5-42.5T780-238Z" /></svg>
                                             Your Tests
                                         </Link>
                                     </button>
                                     <button
                                         onClick={() => setCurrOption('account')}
-                                        className={`text-sm sm:text-md flex items-center gap-2 text-[#3c4852] font-semibold p-2 rounded-lg ${currOption === 'account' ? 'bg-[#e9eef2]' : ''}`}>
+                                        className={`shadow-md text-sm sm:text-md flex items-center gap-2 text-[#3c4852] font-semibold p-2 rounded-lg ${currOption === 'account' ? 'bg-[#e9eef2]' : ''}`}>
                                         <svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px" fill="#3c4852"><path d="M234-276q51-39 114-61.5T480-360q69 0 132 22.5T726-276q35-41 54.5-93T800-480q0-133-93.5-226.5T480-800q-133 0-226.5 93.5T160-480q0 59 19.5 111t54.5 93Zm246-164q-59 0-99.5-40.5T340-580q0-59 40.5-99.5T480-720q59 0 99.5 40.5T620-580q0 59-40.5 99.5T480-440Zm0 360q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q53 0 100-15.5t86-44.5q-39-29-86-44.5T480-280q-53 0-100 15.5T294-220q39 29 86 44.5T480-160Zm0-360q26 0 43-17t17-43q0-26-17-43t-43-17q-26 0-43 17t-17 43q0 26 17 43t43 17Zm0-60Zm0 360Z" /></svg>
                                         Profile
                                     </button>
                                     <button
                                         onClick={() => setCurrOption('registrations')}
-                                        className={`text-sm sm:text-md flex items-center gap-2 text-[#3c4852] font-semibold p-2 rounded-lg ${currOption === 'registrations' ? 'bg-[#e9eef2]' : ''}`}>
+                                        className={`shadow-md text-sm sm:text-md flex items-center gap-2 text-[#3c4852] font-semibold p-2 rounded-lg ${currOption === 'registrations' ? 'bg-[#e9eef2]' : ''}`}>
                                         <svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px" fill="#3c4852"><path d="M160-80q-33 0-56.5-23.5T80-160v-440q0-33 23.5-56.5T160-680h200v-120q0-33 23.5-56.5T440-880h80q33 0 56.5 23.5T600-800v120h200q33 0 56.5 23.5T880-600v440q0 33-23.5 56.5T800-80H160Zm0-80h640v-440H600q0 33-23.5 56.5T520-520h-80q-33 0-56.5-23.5T360-600H160v440Zm80-80h240v-18q0-17-9.5-31.5T444-312q-20-9-40.5-13.5T360-330q-23 0-43.5 4.5T276-312q-17 8-26.5 22.5T240-258v18Zm320-60h160v-60H560v60Zm-200-60q25 0 42.5-17.5T420-420q0-25-17.5-42.5T360-480q-25 0-42.5 17.5T300-420q0 25 17.5 42.5T360-360Zm200-60h160v-60H560v60ZM440-600h80v-200h-80v200Zm40 220Z" /></svg>
                                         Registrations
                                     </button>
                                     <button
                                         onClick={() => setCurrOption('results')}
-                                        className={`text-sm sm:text-md flex items-center gap-2 text-[#3c4852] font-semibold p-2 rounded-lg ${currOption === 'results' ? 'bg-[#e9eef2]' : ''}`}>
+                                        className={`shadow-md text-sm sm:text-md flex items-center gap-2 text-[#3c4852] font-semibold p-2 rounded-lg ${currOption === 'results' ? 'bg-[#e9eef2]' : ''}`}>
                                         <svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px" fill="#3c4852"><path d="M320-480v-80h320v80H320Zm0-160v-80h320v80H320Zm-80 240h300q29 0 54 12.5t42 35.5l84 110v-558H240v400Zm0 240h442L573-303q-6-8-14.5-12.5T540-320H240v160Zm480 80H240q-33 0-56.5-23.5T160-160v-640q0-33 23.5-56.5T240-880h480q33 0 56.5 23.5T800-800v640q0 33-23.5 56.5T720-80Zm-480-80v-640 640Zm0-160v-80 80Z" /></svg>
                                         Results
                                     </button>
                                     {userRole === "testAdmin" &&
-
                                         <button
                                             onClick={() => {
                                                 setCurrOption('addFaq');
                                             }}
-                                            className={`text-sm sm:text-md flex items-center gap-2 text-[#3c4852] font-semibold p-2 rounded-lg ${currOption === 'addFaq' ? 'bg-[#e9eef2]' : ''}`}>
-                                            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#3c4852"><path d="M560-360q17 0 29.5-12.5T602-402q0-17-12.5-29.5T560-444q-17 0-29.5 12.5T518-402q0 17 12.5 29.5T560-360Zm-30-128h60q0-29 6-42.5t28-35.5q30-30 40-48.5t10-43.5q0-45-31.5-73.5T560-760q-41 0-71.5 23T446-676l54 22q9-25 24.5-37.5T560-704q24 0 39 13.5t15 36.5q0 14-8 26.5T578-596q-33 29-40.5 45.5T530-488ZM320-240q-33 0-56.5-23.5T240-320v-480q0-33 23.5-56.5T320-880h480q33 0 56.5 23.5T880-800v480q0 33-23.5 56.5T800-240H320Zm0-80h480v-480H320v480ZM160-80q-33 0-56.5-23.5T80-160v-560h80v560h560v80H160Zm160-720v480-480Z" /></svg>
+                                            className={`shadow-md text-sm sm:text-md flex items-center gap-2 text-[#3c4852] font-semibold p-2 rounded-lg ${currOption === 'addFaq' ? 'bg-[#e9eef2]' : ''}`}>
+                                            <svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px" fill="#3c4852"><path d="M560-360q17 0 29.5-12.5T602-402q0-17-12.5-29.5T560-444q-17 0-29.5 12.5T518-402q0 17 12.5 29.5T560-360Zm-30-128h60q0-29 6-42.5t28-35.5q30-30 40-48.5t10-43.5q0-45-31.5-73.5T560-760q-41 0-71.5 23T446-676l54 22q9-25 24.5-37.5T560-704q24 0 39 13.5t15 36.5q0 14-8 26.5T578-596q-33 29-40.5 45.5T530-488ZM320-240q-33 0-56.5-23.5T240-320v-480q0-33 23.5-56.5T320-880h480q33 0 56.5 23.5T880-800v480q0 33-23.5 56.5T800-240H320Zm0-80h480v-480H320v480ZM160-80q-33 0-56.5-23.5T80-160v-560h80v560h560v80H160Zm160-720v480-480Z" /></svg>
                                             Add FAQs</button>
 
                                     }
                                     {userRole === "testAdmin" &&
-                                        <li>
+                                        <button>
                                             <Link
                                                 href={'/addQuestion'}
-                                                className={`hover:bg-[#e9eef2] w-full flex gap-2 ${style.fonttAverta} text-[#3c4852] font-semibold px-3 py-2 block rounded-lg`}>
-                                                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#3c4852"><path d="M560-360q17 0 29.5-12.5T602-402q0-17-12.5-29.5T560-444q-17 0-29.5 12.5T518-402q0 17 12.5 29.5T560-360Zm-30-128h60q0-29 6-42.5t28-35.5q30-30 40-48.5t10-43.5q0-45-31.5-73.5T560-760q-41 0-71.5 23T446-676l54 22q9-25 24.5-37.5T560-704q24 0 39 13.5t15 36.5q0 14-8 26.5T578-596q-33 29-40.5 45.5T530-488ZM320-240q-33 0-56.5-23.5T240-320v-480q0-33 23.5-56.5T320-880h480q33 0 56.5 23.5T880-800v480q0 33-23.5 56.5T800-240H320Zm0-80h480v-480H320v480ZM160-80q-33 0-56.5-23.5T80-160v-560h80v560h560v80H160Zm160-720v480-480Z" /></svg>
-                                                Add Questions</Link>
-                                        </li>
+                                                className={`shadow-md text-sm sm:text-md flex items-center gap-2 text-[#3c4852] font-semibold p-2 rounded-lg ${currOption === '' ? 'bg-[#e9eef2]' : ''}`}>
+                                                <svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px" fill="#3c4852"><path d="M560-360q17 0 29.5-12.5T602-402q0-17-12.5-29.5T560-444q-17 0-29.5 12.5T518-402q0 17 12.5 29.5T560-360Zm-30-128h60q0-29 6-42.5t28-35.5q30-30 40-48.5t10-43.5q0-45-31.5-73.5T560-760q-41 0-71.5 23T446-676l54 22q9-25 24.5-37.5T560-704q24 0 39 13.5t15 36.5q0 14-8 26.5T578-596q-33 29-40.5 45.5T530-488ZM320-240q-33 0-56.5-23.5T240-320v-480q0-33 23.5-56.5T320-880h480q33 0 56.5 23.5T880-800v480q0 33-23.5 56.5T800-240H320Zm0-80h480v-480H320v480ZM160-80q-33 0-56.5-23.5T80-160v-560h80v560h560v80H160Zm160-720v480-480Z" /></svg>
+                                                Add Ques</Link>
+                                        </button>
                                     }
                                     {userRole === "testAdmin" &&
-                                        <li>
+                                        <button>
                                             <Link
                                                 href={'/previewQuestion'}
-                                                className={`hover:bg-[#e9eef2] w-full flex gap-2 ${style.fonttAverta} text-[#3c4852] font-semibold px-3 py-2 block rounded-lg`}>
-                                                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#3c4852"><path d="M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h560q33 0 56.5 23.5T840-760v560q0 33-23.5 56.5T760-120H200Zm0-80h560v-480H200v480Zm280-80q-82 0-146.5-44.5T240-440q29-71 93.5-115.5T480-600q82 0 146.5 44.5T720-440q-29 71-93.5 115.5T480-280Zm0-60q56 0 102-26.5t72-73.5q-26-47-72-73.5T480-540q-56 0-102 26.5T306-440q26 47 72 73.5T480-340Zm0-100Zm0 60q25 0 42.5-17.5T540-440q0-25-17.5-42.5T480-500q-25 0-42.5 17.5T420-440q0 25 17.5 42.5T480-380Z" /></svg>
-                                                Preview Questions</Link>
-                                        </li>
+                                                className={`shadow-md text-sm sm:text-md flex items-center gap-2 text-[#3c4852] font-semibold p-2 rounded-lg ${currOption === '' ? 'bg-[#e9eef2]' : ''}`}>
+                                                <svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px" fill="#3c4852"><path d="M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h560q33 0 56.5 23.5T840-760v560q0 33-23.5 56.5T760-120H200Zm0-80h560v-480H200v480Zm280-80q-82 0-146.5-44.5T240-440q29-71 93.5-115.5T480-600q82 0 146.5 44.5T720-440q-29 71-93.5 115.5T480-280Zm0-60q56 0 102-26.5t72-73.5q-26-47-72-73.5T480-540q-56 0-102 26.5T306-440q26 47 72 73.5T480-340Zm0-100Zm0 60q25 0 42.5-17.5T540-440q0-25-17.5-42.5T480-500q-25 0-42.5 17.5T420-440q0 25 17.5 42.5T480-380Z" /></svg>
+                                                Check Ques</Link>
+                                        </button>
                                     }
                                     {userRole === "testAdmin" &&
-                                        <li>
+                                        <button>
                                             <Link
                                                 href={'/editQuestion'}
-                                                className={`hover:bg-[#e9eef2] w-full flex gap-2 ${style.fonttAverta} text-[#3c4852] font-semibold px-3 py-2 block rounded-lg`}>
-                                                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#3c4852"><path d="M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h357l-80 80H200v560h560v-278l80-80v358q0 33-23.5 56.5T760-120H200Zm280-360ZM360-360v-170l367-367q12-12 27-18t30-6q16 0 30.5 6t26.5 18l56 57q11 12 17 26.5t6 29.5q0 15-5.5 29.5T897-728L530-360H360Zm481-424-56-56 56 56ZM440-440h56l232-232-28-28-29-28-231 231v57Zm260-260-29-28 29 28 28 28-28-28Z" /></svg>
-                                                Edit Questions</Link>
-                                        </li>
+                                                className={`shadow-md text-sm sm:text-md flex items-center gap-2 text-[#3c4852] font-semibold p-2 rounded-lg ${currOption === '' ? 'bg-[#e9eef2]' : ''}`}>
+                                                <svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px" fill="#3c4852"><path d="M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h357l-80 80H200v560h560v-278l80-80v358q0 33-23.5 56.5T760-120H200Zm280-360ZM360-360v-170l367-367q12-12 27-18t30-6q16 0 30.5 6t26.5 18l56 57q11 12 17 26.5t6 29.5q0 15-5.5 29.5T897-728L530-360H360Zm481-424-56-56 56 56ZM440-440h56l232-232-28-28-29-28-231 231v57Zm260-260-29-28 29 28 28 28-28-28Z" /></svg>
+                                                Edit Ques</Link>
+                                        </button>
                                     }
                                     {userRole === "testAdmin" &&
-                                        <li>
+                                        <button>
                                             <Link
                                                 href={'/deleteQuestion'}
-                                                className={`hover:bg-[#e9eef2] w-full flex gap-2 ${style.fonttAverta} text-[#3c4852] font-semibold px-3 py-2 block rounded-lg`}>
-                                                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#3c4852"><path d="m376-300 104-104 104 104 56-56-104-104 104-104-56-56-104 104-104-104-56 56 104 104-104 104 56 56Zm-96 180q-33 0-56.5-23.5T200-200v-520h-40v-80h200v-40h240v40h200v80h-40v520q0 33-23.5 56.5T680-120H280Zm400-600H280v520h400v-520Zm-400 0v520-520Z" /></svg>
-                                                Delete Questions</Link>
-                                        </li>
+                                                className={`shadow-md text-sm sm:text-md flex items-center gap-2 text-[#3c4852] font-semibold p-2 rounded-lg ${currOption === '' ? 'bg-[#e9eef2]' : ''}`}>
+                                                <svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px" fill="#3c4852"><path d="m376-300 104-104 104 104 56-56-104-104 104-104-56-56-104 104-104-104-56 56 104 104-104 104 56 56Zm-96 180q-33 0-56.5-23.5T200-200v-520h-40v-80h200v-40h240v40h200v80h-40v520q0 33-23.5 56.5T680-120H280Zm400-600H280v520h400v-520Zm-400 0v520-520Z" /></svg>
+                                                Delete Ques</Link>
+                                        </button>
                                     }
                                     <button
                                         onClick={() => setCurrOption('settings')}
-                                        className={`text-sm sm:text-md flex items-center gap-2 text-[#3c4852] font-semibold p-2 rounded-lg ${currOption === 'settings' ? 'bg-[#e9eef2]' : ''}`}>
+                                        className={`shadow-md text-sm sm:text-md flex items-center gap-2 text-[#3c4852] font-semibold p-2 rounded-lg ${currOption === 'settings' ? 'bg-[#e9eef2]' : ''}`}>
                                         <svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px" fill="#3c4852"><path d="M400-480q-66 0-113-47t-47-113q0-66 47-113t113-47q66 0 113 47t47 113q0 66-47 113t-113 47ZM80-160v-112q0-33 17-62t47-44q51-26 115-44t141-18h14q6 0 12 2-8 18-13.5 37.5T404-360h-4q-71 0-127.5 18T180-306q-9 5-14.5 14t-5.5 20v32h252q6 21 16 41.5t22 38.5H80Zm560 40-12-60q-12-5-22.5-10.5T584-204l-58 18-40-68 46-40q-2-14-2-26t2-26l-46-40 40-68 58 18q11-8 21.5-13.5T628-460l12-60h80l12 60q12 5 22.5 11t21.5 15l58-20 40 70-46 40q2 12 2 25t-2 25l46 40-40 68-58-18q-11 8-21.5 13.5T732-180l-12 60h-80Zm40-120q33 0 56.5-23.5T760-320q0-33-23.5-56.5T680-400q-33 0-56.5 23.5T600-320q0 33 23.5 56.5T680-240ZM400-560q33 0 56.5-23.5T480-640q0-33-23.5-56.5T400-720q-33 0-56.5 23.5T320-640q0 33 23.5 56.5T400-560Zm0-80Zm12 400Z" /></svg>
                                         Settings
                                     </button>

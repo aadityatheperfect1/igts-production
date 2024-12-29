@@ -17,7 +17,7 @@ export default function RootLayout({ children }) {
 
   return (
     <Provider store={store}>
-      <html lang="en">
+      <html lang="en" className={`custom-scrollbar`}>
         <body>
           <ProgressBar
             height="3px"

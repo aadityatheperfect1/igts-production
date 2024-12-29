@@ -83,13 +83,6 @@ export default function RegisteredTests() {
         }
     }, [user]);
 
-    console.log(userDetails);
-
-
-    const handleAttemptTest = (testId) => {
-        console.log("Attempting test:", testId);
-        // Add logic to navigate to the test page
-    };
 
     const renderTestDetails = () => {
         return userDetails.registeredTests.map((registeredTest) => {
@@ -213,6 +206,9 @@ export default function RegisteredTests() {
                 </div>
             );
         });
+
+
+
     };
 
 

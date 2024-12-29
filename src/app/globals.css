@@ -16,7 +16,8 @@
 
 @font-face {
   font-family: "LondrinaSketch";
-  src: url("/fonts/Londrina_Sketch/LondrinaSketch-Regular.ttf") format("truetype");
+  src: url("/fonts/Londrina_Sketch/LondrinaSketch-Regular.ttf")
+    format("truetype");
   font-style: normal;
 }
 
@@ -60,4 +61,18 @@ body {
   font-family: "LondrinaSketch", sans-serif;
   font-weight: 1000;
   font-style: normal;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 8px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: #f0f4f8;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #d6d6d6;
+  border-radius: 4px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #bdbdbd;
 }
