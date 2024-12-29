@@ -115,8 +115,8 @@ export default function AttemptTestLayout({ params }) {
             if (testDate) {
                 // Parse and format the test date
                 const formattedDate = formatDateString(testDate);
-                const testDateTime = new Date(`${formattedDate} 15:52:00`);
-                const testEndDateTime = new Date(`${formattedDate} 20:55:00`);
+                const testDateTime = new Date(`${formattedDate} 17:30:00`);
+                const testEndDateTime = new Date(`${formattedDate} 20:30:00`);
                 const now = new Date();
 
                 if (now >= testDateTime && now <= testEndDateTime) {
