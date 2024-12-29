@@ -375,8 +375,8 @@ export default function AttemptLive({ params }) {
             if (testDate) {
                 // Parse and format the test date
                 const formattedDate = formatDateString(testDate);
-                const testDateTime = new Date(`${formattedDate} 17:30:00`);
-                const testEndDateTime = new Date(`${formattedDate} 20:30:00`);
+                const testDateTime = new Date(`${formattedDate} 15:52:00`);
+                const testEndDateTime = new Date(`${formattedDate} 20:55:00`);
                 const now = new Date();
 
                 if (now >= testDateTime && now <= testEndDateTime) {
@@ -1184,8 +1184,12 @@ export default function AttemptLive({ params }) {
                                                             className="text-gray-800 text-lg leading-relaxed"
                                                             dangerouslySetInnerHTML={renderLatex(selectedQuestion.questionText)}
                                                         ></div>
+                                                        {selectedQuestion.diagramLink === "" ? ''
+                                                            : <div>
+                                                                <img className={`w-1/3`} src={`${selectedQuestion.diagramLink}`} alt="" />
+                                                            </div>
+                                                        }
                                                     </div>
-
 
                                                     {/* Options */}
                                                     <div className="grid gap-4">
