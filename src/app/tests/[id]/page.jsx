@@ -274,24 +274,39 @@ export default function TestDetails({ params }) {
                                         if (isAlreadyRegistered(selectedTestPack, userDetails.registeredTests)) {
                                           toast.success("You're already registered for this test.");
                                         }
-                                        else {
+                                        else if (selectedPack === 'Pack 1') {
+                                          toast.error("Registration Closed for " + selectedPack);
+                                        }
+                                        else if (selectedPack === 'Both Packs') {
+                                          toast.error("Registration Closed for Combo Pack");
+                                        }
+                                        else if (selectedPack === 'Pack 2') {
                                           // const url = `https://igts.dhanakiist.co.in/tests/${testDetails.id}/enroll?pack=${encodedPack}`;
                                           router.push(`/tests/${testDetails.id}/enroll?pack=${encodedPack}`);
                                           // window.location.href = url; // Redirect to the correct URL
                                         }
                                       }
                                       else {
-                                        toast.error('Please register/login first!');
-                                        setTimeout(() => {
+                                        if (selectedPack === 'Pack 2') {
+                                          toast.error('Please register/login first!');
+                                        }
+                                        if (selectedPack === 'Pack 1') {
+                                          toast.error("Registration Closed for " + selectedPack);
+                                        }
+                                        else if (selectedPack === 'Both Packs') {
+                                          toast.error("Registration Closed for Combo Pack");
+                                        }
+                                        else if (selectedPack === 'Pack 2') {
                                           router.push(`/sign-in`);
-                                        }, 500);
+                                        }
                                       }
                                     }
                                   }
                                 >
 
-                                  {selectedPack === 'Pack 1' || selectedPack === 'Pack 1 + Pack 2' && 'Registration Closed'}
-                                  {selectedPack === 'Pack ' && 'Enroll Now'}
+                                  {selectedPack === 'Pack 1' && 'Registration Closed'}
+                                  {selectedPack === 'Both Packs' && 'Registration Closed'}
+                                  {selectedPack === 'Pack 2' && 'Enroll Now'}
 
                                 </button>
                               </div>
@@ -521,10 +536,18 @@ export default function TestDetails({ params }) {
                                       }
                                     }
                                     else {
-                                      toast.error('Please register/login first!');
-                                      setTimeout(() => {
+                                      if (selectedPack === 'Pack 2') {
+                                        toast.error('Please register/login first!');
+                                      }
+                                      if (selectedPack === 'Pack 1') {
+                                        toast.error("Registration Closed for " + selectedPack);
+                                      }
+                                      else if (selectedPack === 'Both Packs') {
+                                        toast.error("Registration Closed for Combo Pack");
+                                      }
+                                      else if (selectedPack === 'Pack 2') {
                                         router.push(`/sign-in`);
-                                      }, 500);
+                                      }
                                     }
                                   }
                                 }
