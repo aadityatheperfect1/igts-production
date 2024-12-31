@@ -12,7 +12,7 @@ const tests = [
     comboDiscountRate: 0.583333,
     testSchedule: {
       pack1: {
-        test1: '29st Dec 2024',
+        test1: '31st Dec 2024',
         test2: '5th Jan 2025',
         test3: '10th Jan 2025'
       },
@@ -91,38 +91,6 @@ const tests = [
         test5: '18th Jan 2025',
         test6: '22nd Jan 2025'
       },
-    }
-  },
-  {
-    id: 'gate-mock-for-physics',
-    title: 'Physics',
-    description: 'Discover our test series package tailored mainly for Physics Domain, designed to boost your GATE preparation.',
-    includes: '*Includes 3 mock tests',
-    imageUrl: 'https://ik.imagekit.io/dhanak2k25/physics-branch.png',
-    altText: 'btech physics branch',
-    pricePerPack: 240,
-    discountRate: 0.50,
-    comboDiscountRate: 0.583333,
-    testSchedule: {
-      pack1: {
-        test1: '31st Dec 2024',
-        test2: '5th Jan 2025',
-        test3: '10th Jan 2025'
-      },
-      pack2: {
-        test1: '15th Jan 2025',
-        test2: '20th Jan 2025',
-        test3: '25th Jan 2025'
-      },
-      pack1pack2noth: {
-        test1: '31st Dec 2024',
-        test2: '5th Jan 2025',
-        test3: '10th Jan 2025',
-        test1: '15th Jan 2025',
-        test2: '20th Jan 2025',
-        test3: '25th Jan 2025'
-      },
-
     }
   },
 ];

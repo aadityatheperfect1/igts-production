@@ -423,7 +423,7 @@ export default function AttemptLive({ params }) {
         const domainMapping = {
             "Aerospace Engineering": "Aerospace",
             "Electronics and Communication Engineering": "ECE",
-            "Mechanical Enigneering": "Mechanical",
+            "Mechanical Engineering": "Mechanical",
             "Physics": "Physics",
         };
 
@@ -463,7 +463,9 @@ export default function AttemptLive({ params }) {
     // Function to fetch test questions
     const fetchTestQuestions = async () => {
         setIsTestLoading(true);
+        console.log(domain);
         const payload = formatTestData(RegisteredTestId, testPack, testNumber, domain);
+        console.log("payloda: ", payload);
         try {
             const response = await fetch('/api/testConduction/fetchQuestions', {
                 method: 'POST',
@@ -1186,7 +1188,7 @@ export default function AttemptLive({ params }) {
                                                         ></div>
                                                         {selectedQuestion.diagramLink === "" ? ''
                                                             : <div>
-                                                                <img className={`w-1/3`} src={`${selectedQuestion.diagramLink}`} alt="" />
+                                                                <img className={`w-9/12`} src={`${selectedQuestion.diagramLink}`} alt="" />
                                                             </div>
                                                         }
                                                     </div>

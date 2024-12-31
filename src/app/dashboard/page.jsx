@@ -4,7 +4,6 @@ import Footer from "@/components/Footer";
 import { useAuthState } from 'react-firebase-hooks/auth';
 import toast, { Toaster } from "react-hot-toast";
 import { firebaseConfig } from "@/app/firebase/config";
-
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
 import { signOut } from "firebase/auth";
@@ -383,7 +382,6 @@ export default function Dashboard() {
                                             <p className={`${style.fonttAverta} text-sm font-bold`}>
                                                 Results will be displayed within 48 hours after you attempt the test.
                                             </p>
-
                                         </div>
 
                                     </div>
@@ -460,11 +458,12 @@ export default function Dashboard() {
                                                     <li>
                                                         <button
                                                             onClick={() => {
-                                                                setCurrOption('results');
+                                                                router.push('/dashboard/results');
                                                             }}
                                                             className={`${currOption === "results" ? "bg-[#e9eef2]" : ""} hover:bg-[#e9eef2] w-full flex gap-2 ${style.fonttAverta} text-[#3c4852] font-semibold px-3 py-2 block rounded-lg`}>
                                                             <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#3c4852"><path d="M320-480v-80h320v80H320Zm0-160v-80h320v80H320Zm-80 240h300q29 0 54 12.5t42 35.5l84 110v-558H240v400Zm0 240h442L573-303q-6-8-14.5-12.5T540-320H240v160Zm480 80H240q-33 0-56.5-23.5T160-160v-640q0-33 23.5-56.5T240-880h480q33 0 56.5 23.5T800-800v640q0 33-23.5 56.5T720-80Zm-480-80v-640 640Zm0-160v-80 80Z" /></svg>
-                                                            Results</button>
+                                                            Results
+                                                        </button>
                                                     </li>
                                                     {userRole === "testAdmin" &&
                                                         <li>
@@ -563,7 +562,7 @@ export default function Dashboard() {
                                         Registrations
                                     </button>
                                     <button
-                                        onClick={() => setCurrOption('results')}
+                                        onClick={() => router.push('/dashboard/results')}
                                         className={`shadow-md text-sm sm:text-md flex items-center gap-2 text-[#3c4852] font-semibold p-2 rounded-lg ${currOption === 'results' ? 'bg-[#e9eef2]' : ''}`}>
                                         <svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px" fill="#3c4852"><path d="M320-480v-80h320v80H320Zm0-160v-80h320v80H320Zm-80 240h300q29 0 54 12.5t42 35.5l84 110v-558H240v400Zm0 240h442L573-303q-6-8-14.5-12.5T540-320H240v160Zm480 80H240q-33 0-56.5-23.5T160-160v-640q0-33 23.5-56.5T240-880h480q33 0 56.5 23.5T800-800v640q0 33-23.5 56.5T720-80Zm-480-80v-640 640Zm0-160v-80 80Z" /></svg>
                                         Results

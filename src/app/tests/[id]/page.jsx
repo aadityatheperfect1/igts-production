@@ -32,7 +32,7 @@ export default function TestDetails({ params }) {
   const pageType = pageParams.id;
 
   const router = useRouter();
-  const [selectedPack, setSelectedPack] = useState('Pack 1');
+  const [selectedPack, setSelectedPack] = useState('Pack 2');
 
 
 
@@ -289,7 +289,10 @@ export default function TestDetails({ params }) {
                                     }
                                   }
                                 >
-                                  Enroll Now
+
+                                  {selectedPack === 'Pack 1' || selectedPack === 'Pack 1 + Pack 2' && 'Registration Closed'}
+                                  {selectedPack === 'Pack ' && 'Enroll Now'}
+
                                 </button>
                               </div>
                             </div>
@@ -443,7 +446,7 @@ export default function TestDetails({ params }) {
                             </div>
                             <div className="flex items-center justify-center">
                               <button
-                                className="px-8 w-full py-3 text-lg flex justify-center items-center font-extrabold rounded-xl text-center text-white bg-gradient-to-b from-[#7c65f1] to-[#674cee] hover:from-[#674cee] hover:to-[#674cee]"
+                                className={`${selectedPack === 'Pack 1' && 'cursor-not-allowed'} ${selectedPack === 'Both Packs' && 'cursor-not-allowed'} px-8 w-full py-3 text-lg flex justify-center items-center font-extrabold rounded-xl text-center text-white bg-gradient-to-b from-[#7c65f1] to-[#674cee] hover:from-[#674cee] hover:to-[#674cee]`}
                                 onClick={
                                   () => {
                                     if (userDetails) {
@@ -505,7 +508,13 @@ export default function TestDetails({ params }) {
                                       if (isAlreadyRegistered(selectedTestPack, userDetails.registeredTests)) {
                                         toast.success("You're already registered for this test.");
                                       }
-                                      else {
+                                      else if (selectedPack === 'Pack 1') {
+                                        toast.error("Registration Closed for " + selectedPack);
+                                      }
+                                      else if (selectedPack === 'Both Packs') {
+                                        toast.error("Registration Closed for Combo Pack");
+                                      }
+                                      else if (selectedPack === 'Pack 2') {
                                         // const url = `https://igts.dhanakiist.co.in/tests/${testDetails.id}/enroll?pack=${encodedPack}`;
                                         router.push(`/tests/${testDetails.id}/enroll?pack=${encodedPack}`);
                                         // window.location.href = url; // Redirect to the correct URL
@@ -521,7 +530,10 @@ export default function TestDetails({ params }) {
                                 }
                               >
 
-                                Enroll Now
+                                {selectedPack === 'Pack 1' && 'Registration Closed'}
+                                {selectedPack === 'Both Packs' && 'Registration Closed'}
+                                {selectedPack === 'Pack 2' && 'Enroll Now'}
+
                               </button>
                             </div>
                           </div>

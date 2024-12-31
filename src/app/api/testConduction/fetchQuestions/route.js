@@ -7,6 +7,8 @@ export async function POST(req) {
 
         const { RegisteredTestId, testPack, testNumber, domain } = payload;
 
+        console.log(RegisteredTestId, testPack, testNumber, domain);
+
         if (!RegisteredTestId || !testPack || !testNumber || !domain) {
             return new Response(
                 JSON.stringify({ error: "All parameters are required." }),
