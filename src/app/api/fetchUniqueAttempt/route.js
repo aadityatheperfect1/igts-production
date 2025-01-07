@@ -289,12 +289,12 @@ async function startTestEvaluation(attempt) {
   try {
     const existingReport = await Report.findOne({ attemptId: attempt._id });
     if (existingReport) {
-      console.log("Attempt already evaluated:", attempt._id);
+      // console.log("Attempt already evaluated:", attempt._id);
       return;
     }
 
     // Start the evaluation process
-    console.log("Starting evaluation for attempt:", attempt._id);
+    // console.log("Starting evaluation for attempt:", attempt._id);
     const responses = attempt.responses;
     const allQuestions = await Question.find({
       packId: attempt.packId,
@@ -310,8 +310,8 @@ async function startTestEvaluation(attempt) {
 
     result.giveRank(attempt.domainId); // Give rank based on the scores
 
-    console.log("Evaluation completed for attempt:", attempt._id);
-    console.log(result);
+    // console.log("Evaluation completed for attempt:", attempt._id);
+    // console.log(result);
 
     // Save the evaluation result to the database
     const report = new Report(result);
@@ -320,7 +320,7 @@ async function startTestEvaluation(attempt) {
     // Update the status of the attempt to "evaluated"
     await TestAttempt.findByIdAndUpdate(attempt._id, { status: "evaluated" });
   } catch (error) {
-    console.log(error);
+    // console.log(error);
   }
 }
 

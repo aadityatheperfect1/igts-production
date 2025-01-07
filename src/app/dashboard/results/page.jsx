@@ -216,7 +216,8 @@ export default function DashboardResults() {
                                                         <p className="text-[#1d7dea] font-semibold text-md flex items-center gap-2">
                                                             Status:
                                                             {attempt.status === 'completed' ? <span className={`font-normal text-green-600`}>{attempt.status.charAt(0).toUpperCase() + attempt.status.slice(1)}</span> : ''}
-                                                            {attempt.status === 'attempting' ? <span className={`font-normal text-yellow-600`}>{attempt.status.charAt(0).toUpperCase() + attempt.status.slice(1)}</span> : ''}
+                                                            {attempt.status === 'attempting' ? <span className={`font-normal text-orange-600`}>{attempt.status.charAt(0).toUpperCase() + attempt.status.slice(1)}</span> : ''}
+                                                            {attempt.status === 'evaluated' ? <span className={`font-normal text-green-600`}>{attempt.status.charAt(0).toUpperCase() + attempt.status.slice(1)}</span> : ''}
                                                             {/* <span className={`text-[#222222]`}>{attempt.status}</span> */}
                                                         </p>
                                                         <p className="text-[#1d7dea] font-normal text-2xl hidden md:inline-block">•</p>
