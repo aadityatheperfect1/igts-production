@@ -618,7 +618,7 @@ export default function ResultsAnalysis({ params }) {
                   </div>
                 </div>
                 <div className={`text-sm md:text-md text-center`}>
-                  Evaluation is done... Please refresh the page to check your report.
+                  Evaluation is done... Please refresh the page now to check your report.
                 </div>
               </div>
             )}
