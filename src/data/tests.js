@@ -17,7 +17,7 @@ const tests = [
         test3: '10th Jan 2025'
       },
       pack2: {
-        test1: '15th Jan 2025',
+        test1: '17th Jan 2025',
         test2: '20th Jan 2025',
         test3: '22nd Jan 2025'
       },
@@ -25,7 +25,7 @@ const tests = [
         test1: '31st Dec 2024',
         test2: '5th Jan 2025',
         test3: '10th Jan 2025',
-        test4: '15th Jan 2025',
+        test4: '17th Jan 2025',
         test5: '20th Jan 2025',
         test6: '22nd Jan 2025'
       },
