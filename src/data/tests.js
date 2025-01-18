@@ -80,7 +80,7 @@ const tests = [
       },
       pack2: {
         test1: '17th Jan 2025',
-        test2: '18th Jan 2025',
+        test2: '19th Jan 2025',
         test3: '22nd Jan 2025'
       },
       pack1pack2both: {
@@ -88,7 +88,7 @@ const tests = [
         test2: '3rd Jan 2025',
         test3: '8th Jan 2025',
         test4: '17th Jan 2025',
-        test5: '18th Jan 2025',
+        test5: '19th Jan 2025',
         test6: '22nd Jan 2025'
       },
     }
