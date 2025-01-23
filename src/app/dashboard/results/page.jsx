@@ -178,7 +178,7 @@ export default function DashboardResults() {
                 <div className="w-full min-h-screen pt-10 pb-6 px-4 md:px-10 bg-white font-semibold traking-wider rounded-md shadow-xs border border-gray-300 mx-auto">
                     <h2 className="font-bold text-3xl mb-6 text-center">Your Test Attempts</h2>
                     {testAttempts.length === 0 ? (
-                        <div>No test attempts found.</div>
+                        <div>No test attempt found.</div>
                     ) : (
                         <div className="space-y-6">
                             {testAttempts.map((attempt) => {
@@ -216,7 +216,8 @@ export default function DashboardResults() {
                                                         <p className="text-[#1d7dea] font-semibold text-md flex items-center gap-2">
                                                             Status:
                                                             {attempt.status === 'completed' ? <span className={`font-normal text-green-600`}>{attempt.status.charAt(0).toUpperCase() + attempt.status.slice(1)}</span> : ''}
-                                                            {attempt.status === 'attempting' ? <span className={`font-normal text-yellow-600`}>{attempt.status.charAt(0).toUpperCase() + attempt.status.slice(1)}</span> : ''}
+                                                            {attempt.status === 'attempting' ? <span className={`font-normal text-orange-600`}>{attempt.status.charAt(0).toUpperCase() + attempt.status.slice(1)}</span> : ''}
+                                                            {attempt.status === 'evaluated' ? <span className={`font-normal text-green-600`}>{attempt.status.charAt(0).toUpperCase() + attempt.status.slice(1)}</span> : ''}
                                                             {/* <span className={`text-[#222222]`}>{attempt.status}</span> */}
                                                         </p>
                                                         <p className="text-[#1d7dea] font-normal text-2xl hidden md:inline-block">•</p>

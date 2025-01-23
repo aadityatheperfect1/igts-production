@@ -17,17 +17,17 @@ const tests = [
         test3: '10th Jan 2025'
       },
       pack2: {
-        test1: '15th Jan 2025',
+        test1: '17th Jan 2025',
         test2: '20th Jan 2025',
-        test3: '25th Jan 2025'
+        test3: '22nd Jan 2025'
       },
       pack1pack2both: {
         test1: '31st Dec 2024',
         test2: '5th Jan 2025',
         test3: '10th Jan 2025',
-        test4: '15th Jan 2025',
+        test4: '17th Jan 2025',
         test5: '20th Jan 2025',
-        test6: '25th Jan 2025'
+        test6: '22nd Jan 2025'
       },
     }
   },
@@ -45,19 +45,19 @@ const tests = [
       pack1: {
         test1: '29th Dec 2024',
         test2: '3rd Jan 2025',
-        test3: '8th Jan 2025'
+        test3: '10th Jan 2025'
       },
       pack2: {
         test1: '13th Jan 2025',
-        test2: '18th Jan 2025',
+        test2: '19th Jan 2025',
         test3: '22nd Jan 2025'
       },
       pack1pack2both: {
         test1: '29th Dec 2024',
         test2: '3rd Jan 2025',
-        test3: '8th Jan 2025',
+        test3: '10th Jan 2025',
         test4: '13th Jan 2025',
-        test5: '18th Jan 2025',
+        test5: '19th Jan 2025',
         test6: '22nd Jan 2025'
       },
     }
@@ -79,16 +79,16 @@ const tests = [
         test3: '8th Jan 2025'
       },
       pack2: {
-        test1: '13th Jan 2025',
-        test2: '18th Jan 2025',
+        test1: '17th Jan 2025',
+        test2: '19th Jan 2025',
         test3: '22nd Jan 2025'
       },
       pack1pack2both: {
         test1: '29th Dec 2024',
         test2: '3rd Jan 2025',
         test3: '8th Jan 2025',
-        test4: '13th Jan 2025',
-        test5: '18th Jan 2025',
+        test4: '17th Jan 2025',
+        test5: '19th Jan 2025',
         test6: '22nd Jan 2025'
       },
     }
