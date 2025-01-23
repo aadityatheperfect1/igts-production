@@ -1,14 +1,14 @@
 export const metadata = {
-    title: "IGTS",
+    title: "Attempt Test - IGTS",
     description:
-        "Dhanak 2k25 is a cultural fest organised by the students of Indian Institute of Space Science and Technology, Thiruvananthapuram.",
+      "Dhanak 2k25 is a cultural fest organised by the students of Indian Institute of Space Science and Technology, Thiruvananthapuram.",
     icons: {
-        icon: "/images/logo_half.png", // /public path
+      icon: "/images/icon.png", // /public path
     },
-    url: "https://dhanak.iist.org.in",
+    url: "https://igts.dhanakiist.co.in",
     type: "website",
-    siteName: "Dhanak 2k25",
-};
+    siteName: "IGTS - Dhanak 2k25",
+  };
 
 export default function AttemptLivePage({ children }) {
     return (
