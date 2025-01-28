@@ -460,7 +460,7 @@ export default function TestDetails({ params }) {
                               </div>
                             </div>
                             <div className="flex items-center justify-center">
-                              <button
+                              {/* <button
                                 className={`${selectedPack === 'Pack 1' && 'cursor-not-allowed'} ${selectedPack === 'Both Packs' && 'cursor-not-allowed'} px-8 w-full py-3 text-lg flex justify-center items-center font-extrabold rounded-xl text-center text-white bg-gradient-to-b from-[#7c65f1] to-[#674cee] hover:from-[#674cee] hover:to-[#674cee]`}
                                 onClick={
                                   () => {
@@ -557,6 +557,11 @@ export default function TestDetails({ params }) {
                                 {selectedPack === 'Both Packs' && 'Registration Closed'}
                                 {selectedPack === 'Pack 2' && 'Enroll Now'}
 
+                              </button> */}
+                              <button
+                                className={`cursor-not-allowed px-8 w-full py-3 text-lg flex justify-center items-center font-extrabold rounded-xl text-center text-white bg-gradient-to-b from-[#7c65f1] to-[#674cee] hover:from-[#674cee] hover:to-[#674cee]`}
+                              >
+                                Registration Closed
                               </button>
                             </div>
                           </div>
