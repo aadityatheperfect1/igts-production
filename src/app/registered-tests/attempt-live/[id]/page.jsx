@@ -376,7 +376,7 @@ export default function AttemptLive({ params }) {
                 // Parse and format the test date
                 const formattedDate = formatDateString(testDate);
                 const testDateTime = new Date(`${formattedDate} 17:30:00`);
-                const testEndDateTime = new Date(`${formattedDate} 20:30:00`);
+                const testEndDateTime = new Date(`${formattedDate} 23:30:00`);
                 const now = new Date();
 
                 if (now >= testDateTime && now <= testEndDateTime) {
