@@ -43,7 +43,7 @@ const tests = [
     comboDiscountRate: 0.583333,
     testSchedule: {
       pack1: {
-        test1: '29th Dec 2024',
+        test1: '6th Jun 2025',
         test2: '3rd Jan 2025',
         test3: '10th Jan 2025'
       },
